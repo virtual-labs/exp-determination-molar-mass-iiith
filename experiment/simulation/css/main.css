@@ -1,1 +1,10 @@
-/* You CSS goes in here */
+[class*="row"] {
+  width: auto;
+  height: 500px;
+}
+.spectrometer {
+  transform: translate(50px, 15%);
+}
+.graphwindow {
+  transform: translate(30px, 14%);
+}
