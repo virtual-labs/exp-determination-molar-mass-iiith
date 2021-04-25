@@ -8,3 +8,20 @@
 .graphwindow {
   transform: translate(30px, 14%);
 }
+.action-button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 1px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8vw;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 10%;
+}
+
+.action-button:hover {
+  background-color: #a9a9a9;
+}
