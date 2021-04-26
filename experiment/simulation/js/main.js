@@ -12,8 +12,10 @@ let startAnimation = async () => {
     line.setAttribute("y1", `${yPos}%`);
   }, 1);
 };
-let fillSyringe = async () => {
-  const line = document.getElementById("half_grad2");
+let fillSyringe = async (x) => {
+  if (x == 1) document.getElementById("line3").style.stopColor = "#00a8f3";
+  else document.getElementById("line3").style.stopColor = "orange";
+  const line = document.getElementById("half_grad3");
   const yFinalPosition = 0;
   let yPos = 100;
   const interval = window.setInterval(() => {
@@ -40,6 +42,7 @@ let fillPipette = async () => {
 };
 function pur() {
   var image = document.getElementById("spoon1");
+  image.setAttribute("opacity", "1");
   console.log(image);
   image.style.transform = "translate(200%, -5%);";
   image.style.pointerEvents = "none";
@@ -89,6 +92,7 @@ function pur() {
       },
       opacity: 0,
     });
+  document.getElementById("solvent").setAttribute("onclick", "movePipette()");
 }
 async function liftPiston() {
   var image = document.getElementById("syringepiston");
@@ -113,6 +117,7 @@ async function liftPiston() {
 }
 async function movePipette() {
   var image = document.getElementById("pipette");
+  image.setAttribute("opacity", "1");
   image.style.pointerEvents = "none";
   var a1 = anime.timeline({
     targets: "#pipette",
@@ -124,7 +129,7 @@ async function movePipette() {
   a1.add({
     duration: 0,
     translateY: "150%",
-    translateX: "-1250%",
+    translateX: "-1090%",
   });
   fillPipette();
   await new Promise((r) => setTimeout(r, 1000));
@@ -138,7 +143,7 @@ async function movePipette() {
   })
     .add({
       duration: 800,
-      translateX: "-437%",
+      translateX: "-277%",
     })
     .add({
       duration: 400,
@@ -149,7 +154,91 @@ async function movePipette() {
         document.getElementById("layerabovepink").style.fill = "#00a8f3";
       },
     });
+  document
+    .getElementById("solutionbeaker")
+    .setAttribute("onclick", "shakeBeaker()");
+}
+async function moveSyringe() {
+  var image = document.getElementById("syringe");
+  image.setAttribute("opacity", "1");
+  image.style.pointerEvents = "none";
+  var a1 = anime.timeline({
+    targets: "#syringe",
+    duration: 800,
+    easing: "linear",
+  });
+  a1.add({
+    duration: 0,
+    translateY: "-590%",
+    translateX: "190%",
+  });
+  liftPiston();
+  fillSyringe(1);
+  await new Promise((r) => setTimeout(r, 1000));
+  a1.add({
+    duration: 100,
+    rotateZ: 90,
+  }).add({
+    duration: 1000,
+    translateY: "-208%",
+    translateX: "600%",
+  });
+}
+async function shakeBeaker() {
+  var image = document.getElementById("solutionbeaker");
+  // image.style.pointerEvents = "none";
+  var a1 = anime
+    .timeline({
+      targets: "#solutionbeaker",
+      duration: 800,
+      easing: "easeInOutSine",
+      direction: "alternate",
+      loop: 0,
+    })
+    .add({
+      rotate: [10, 0, -10, 0],
+    })
+    .add({
+      update: function (anim) {
+        document.getElementById("layerabovepink").style.fill = "orange";
+        document.getElementById("pinkbottom").style.fill = "orange";
+      },
+    });
+  document
+    .getElementById("solutionbeaker")
+    .setAttribute("onclick", "moveSyringe2()");
+}
+async function moveSyringe2() {
+  var image = document.getElementById("syringe");
+  image.style.pointerEvents = "none";
+  var a1 = anime.timeline({
+    targets: "#syringe",
+    duration: 800,
+    easing: "linear",
+  });
+  a1.add({
+    duration: 0,
+    translateY: "-520%",
+    translateX: "690%",
+    rotateZ: 0,
+  });
+  liftPiston();
+  fillSyringe(2);
+  await new Promise((r) => setTimeout(r, 1000));
+  a1.add({
+    duration: 100,
+    rotateZ: 90,
+  }).add({
+    duration: 1000,
+    translateY: "-208%",
+    translateX: "600%",
+  });
+  document.getElementById("AnimationTopRight").play();
+  await new Promise((r) => setTimeout(r, 17000));
+  startAnimation();
 }
 // startAnimation();
-pur();
-movePipette();
+// pur();
+// movePipette();
+// moveSyringe2();
+// shakeBeaker();
