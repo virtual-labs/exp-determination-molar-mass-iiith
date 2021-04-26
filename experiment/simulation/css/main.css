@@ -50,18 +50,14 @@
   /* transition: transform 150ms ease-in-out; */
 }
 div.t1 {
-  transform: translate(8%, -3130%);
+  transform: translate(8%, -3190%);
   font-size: 0.8vw;
 }
 div.t2 {
-  transform: translate(27%, -3320%);
+  transform: translate(27%, -3390%);
   font-size: 0.8vw;
 }
 div.t3 {
   transform: translate(22.3%, -4920%);
-  font-size: 0.8vw;
-}
-div.t4 {
-  transform: translate(5.3%, -570%);
   font-size: 0.8vw;
 }
