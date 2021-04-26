@@ -41,6 +41,7 @@ let fillPipette = async () => {
   }, 1);
 };
 function pur() {
+  changeMessage();
   var image = document.getElementById("spoon1");
   image.setAttribute("opacity", "1");
   console.log(image);
@@ -116,6 +117,7 @@ async function liftPiston() {
   });
 }
 async function movePipette() {
+  changeMessage();
   var image = document.getElementById("pipette");
   image.setAttribute("opacity", "1");
   image.style.pointerEvents = "none";
@@ -159,6 +161,7 @@ async function movePipette() {
     .setAttribute("onclick", "shakeBeaker()");
 }
 async function moveSyringe() {
+  changeMessage();
   var image = document.getElementById("syringe");
   image.setAttribute("opacity", "1");
   image.style.pointerEvents = "none";
@@ -185,6 +188,7 @@ async function moveSyringe() {
   });
 }
 async function shakeBeaker() {
+  changeMessage();
   var image = document.getElementById("solutionbeaker");
   // image.style.pointerEvents = "none";
   var a1 = anime
@@ -237,8 +241,15 @@ async function moveSyringe2() {
   await new Promise((r) => setTimeout(r, 17000));
   startAnimation();
 }
-// startAnimation();
-// pur();
-// movePipette();
-// moveSyringe2();
-// shakeBeaker();
+var messages = [
+  "Click on the solvent bottle to draw 1 ml of the solvent (methanol) and inject it into the sample inlet to clean any impurity in the sample pathway.",
+  "Click on the sample bottle to transfer small amount (around 1mg) of the substance into the empty solution bottle",
+  "Click on the solvent bottle to transfer 5 ml of the solvent (methanol) to the substance taken.",
+  "Click on the  solution bottle to make a clear solution.",
+  "Click on the solution Bottle to draw 1 ml of the sample prepared to load on to the mass spectrometer.",
+];
+var iter1 = -1;
+function changeMessage() {
+  iter1++;
+  document.getElementById("instruction").innerHTML = messages[iter1];
+}
