@@ -1,0 +1,22 @@
+[
+    {
+       "question":"1. Mass spectrometers are used to determine which of the following? ",
+       "answers":{
+          "a":"Composition of sample",
+          "b":"Concentration of elements in sample",
+          "c":"Relative mass of atoms",
+          "d":"Properties of sample"
+       },
+       "correctAnswer":"c"
+    },
+    {
+       "question":"2. Who invented mass spectrometers? ",
+       "answers":{
+          "a":"Nikola Tesla",
+          "b":"JJ Thompson",
+          "c":"Goldstein",
+          "d":"Albert Einstein"
+       },
+       "correctAnswer":"b"
+    }
+ ]
