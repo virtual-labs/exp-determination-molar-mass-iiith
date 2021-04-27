@@ -1,0 +1,22 @@
+[
+    {
+       "question":"1. Which of the following ions pass through the slit and reach the collecting plate? ",
+       "answers":{
+          "a":"Negative ions of all masses",
+          "b":"Positive ions of all masses",
+          "c":"Negative ions of specific mass",
+          "d":"Positive ions of specific mass"
+       },
+       "correctAnswer":"d"
+    },
+    {
+       "question":"2. How are ions sorted out in mass spectrometer? ",
+       "answers":{
+          "a":"By applying high voltage",
+          "b":"By accelerating them through magnetic field",
+          "c":"By accelerating them through both electric and magnetic fields",
+          "d":"By accelerating them through electric field"
+       },
+       "correctAnswer":"c"
+    }
+ ]
