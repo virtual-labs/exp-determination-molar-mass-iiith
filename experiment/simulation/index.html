@@ -12,6 +12,7 @@
       integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,18 +21,43 @@
   </head>
 
   <body>
-    <div>
-      <p id="instruction" class="ins">Select any Sample</p>
+    <div class="instructionsBox">
+      <h3 id="instructions">Instructions:</h3>
+      <div id="instruction">Select any Sample</div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          onclick="removeDivs()"
+        />
+        <label
+          class="radio-inline control-label"
+          for="flexRadioDefault1"
+          id="sampleselect"
+        >
+          Aspirine
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          onclick="removeDivs()"
+        />
+        <label
+          class="radio-inline control-label"
+          for="flexRadioDefault2"
+          id="sampleselect"
+        >
+          2-Nitrophenol
+        </label>
+      </div>
     </div>
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <button class="action-button1" onclick="changeMessage()">
-            Aspirine
-          </button>
-          <button class="action-button2" onclick="changeMessage()">
-            Nitrophenol
-          </button>
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"

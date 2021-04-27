@@ -253,3 +253,7 @@ function changeMessage() {
   iter1++;
   document.getElementById("instruction").innerHTML = messages[iter1];
 }
+function removeDivs() {
+  changeMessage();
+  $("div").remove(".form-check");
+}
