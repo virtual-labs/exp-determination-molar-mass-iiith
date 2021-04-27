@@ -49,18 +49,6 @@
   /* display: inline-block; <= shrinks container to image size */
   /* transition: transform 150ms ease-in-out; */
 }
-div.t1 {
-  transform: translate(8%, -3190%);
-  font-size: 0.8vw;
-}
-div.t2 {
-  transform: translate(27%, -3390%);
-  font-size: 0.8vw;
-}
-div.t3 {
-  transform: translate(22.3%, -4920%);
-  font-size: 0.8vw;
-}
 p.ins {
   font-size: 1vw;
 }
