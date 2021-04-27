@@ -61,3 +61,6 @@ div.t3 {
   transform: translate(22.3%, -4920%);
   font-size: 0.8vw;
 }
+p.ins {
+  font-size: 1vw;
+}
