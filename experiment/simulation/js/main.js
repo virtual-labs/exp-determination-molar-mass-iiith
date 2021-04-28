@@ -77,7 +77,7 @@ function pur() {
     })
     .add({
       duration: 800,
-      translateX: "380%",
+      translateX: "480%",
       translateY: "200%",
     })
     .add({
@@ -130,8 +130,8 @@ async function movePipette() {
   });
   a1.add({
     duration: 0,
-    translateY: "150%",
-    translateX: "-1090%",
+    translateY: "-90%",
+    translateX: "450%",
   });
   fillPipette();
   await new Promise((r) => setTimeout(r, 1000));
@@ -141,20 +141,17 @@ async function movePipette() {
   // sleep(1);
   a1.add({
     duration: 500,
-    translateY: "110%",
+    translateX: "-110%",
   })
     .add({
       duration: 800,
-      translateX: "-277%",
-    })
-    .add({
-      duration: 400,
-      translateY: "200%",
+      translateY: "170%",
     })
     .add({
       update: function (anim) {
         document.getElementById("layerabovepink").style.fill = "#00a8f3";
       },
+      opacity: 0,
     });
   document
     .getElementById("solutionbeaker")
@@ -172,8 +169,8 @@ async function moveSyringe() {
   });
   a1.add({
     duration: 0,
-    translateY: "-590%",
-    translateX: "190%",
+    translateY: "-400%",
+    translateX: "-410%",
   });
   liftPiston();
   fillSyringe(1);
@@ -183,8 +180,8 @@ async function moveSyringe() {
     rotateZ: 90,
   }).add({
     duration: 1000,
-    translateY: "-208%",
-    translateX: "600%",
+    translateY: "-175%",
+    translateX: "700%",
   });
 }
 async function shakeBeaker() {
@@ -198,6 +195,10 @@ async function shakeBeaker() {
       easing: "easeInOutSine",
       direction: "alternate",
       loop: 0,
+    })
+    .add({
+      duration: 0,
+      translateX: "70%",
     })
     .add({
       rotate: [10, 0, -10, 0],
@@ -214,6 +215,7 @@ async function shakeBeaker() {
 }
 async function moveSyringe2() {
   var image = document.getElementById("syringe");
+  image.style.opacity = 1;
   image.style.pointerEvents = "none";
   var a1 = anime.timeline({
     targets: "#syringe",
@@ -222,8 +224,8 @@ async function moveSyringe2() {
   });
   a1.add({
     duration: 0,
-    translateY: "-520%",
-    translateX: "690%",
+    translateY: "-120%",
+    translateX: "-760%",
     rotateZ: 0,
   });
   liftPiston();
@@ -234,11 +236,25 @@ async function moveSyringe2() {
     rotateZ: 90,
   }).add({
     duration: 1000,
-    translateY: "-208%",
-    translateX: "600%",
+    translateY: "-175%",
+    translateX: "700%",
   });
-  document.getElementById("AnimationTopRight").play();
-  await new Promise((r) => setTimeout(r, 17000));
+  document.getElementById("AnimationBottomRight").play();
+  await new Promise((r) => setTimeout(r, 2000));
+  iter2 += 1;
+  document.getElementById("animtext").innerHTML = animationmessages[iter2];
+  await new Promise((r) => setTimeout(r, 5000));
+  iter2 += 1;
+  document.getElementById("animtext").innerHTML = animationmessages[iter2];
+  await new Promise((r) => setTimeout(r, 3000));
+  iter2 += 1;
+  document.getElementById("animtext").innerHTML = animationmessages[iter2];
+  await new Promise((r) => setTimeout(r, 5000));
+  iter2 += 1;
+  document.getElementById("animtext").innerHTML = animationmessages[iter2];
+  await new Promise((r) => setTimeout(r, 3000));
+  iter2 += 1;
+  document.getElementById("animtext").innerHTML = animationmessages[iter2];
   startAnimation();
 }
 var messages = [
@@ -257,3 +273,11 @@ function removeDivs() {
   changeMessage();
   $("div").remove(".form-check");
 }
+var iter2 = -1;
+var animationmessages = [
+  "The sample is introduced into the vaporisation chamber which is instantly vapourised due to high vacuum and heat.",
+  "Positively charged radical ions are formed by bombardment of beam of high energy electrons.",
+  "The positively charged radical ions are accelerated by perforated negative electrodes",
+  "The ions are sorted and separated by the magnetic field according to their mass/charge ratio.",
+  "Now observe the graph on the left. These lines demonstrate the molar mass of the compound in the solution Bottle.",
+];
