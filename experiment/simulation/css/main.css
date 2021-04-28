@@ -4,10 +4,10 @@
 }
 .spectrometer {
   display: block;
-  transform: translate(20%, -15%);
+  transform: translate(20%);
 }
 .graphwindow {
-  transform: translate(5%, -15%);
+  transform: translate(5%, 5.5%);
 }
 .action-button1 {
   background-color: #c8b028;
@@ -51,4 +51,52 @@
 }
 p.ins {
   font-size: 1vw;
+}
+#instruction {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4vw;
+}
+.instructionsBox {
+  padding: 0px 1.2%;
+  border-radius: 20px;
+  border: 3px solid rgb(151, 210, 61);
+  width: 50%;
+  margin: 0 auto;
+}
+#instructions {
+  font-size: 1.6vw;
+}
+#sampleselect {
+  font-size: 1.4vw;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  left: 0;
+}
+.heavy {
+  font-size: 30px;
+}
+#AnimationBottomRight {
+  transform: translate(0, -15%);
+}
+#solutionbeaker {
+  transform: translateX(70%);
+}
+.chhotu {
+  transform: translateY(-30%);
+}
+#animationText {
+  transform: translateY(-324%);
+}
+.heavy2 {
+  font-size: 1.4vw;
+}
+.animationText {
+  transform: translateY(-90%);
+  border: 0.2vw solid rgb(185, 106, 42);
+  padding: 0% 1.2%;
+  margin: 0 auto;
+  border-radius: 1vw;
+  position: relative;
+  height: 16%;
 }
