@@ -271,7 +271,7 @@ function changeMessage() {
 }
 function removeDivs() {
   changeMessage();
-  $("div").remove(".form-check");
+  $("div").remove(".custom-control,.custom-radio");
 }
 var iter2 = -1;
 var animationmessages = [
