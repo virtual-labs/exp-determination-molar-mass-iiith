@@ -56,18 +56,25 @@ p.ins {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.4vw;
+  position: relative;
 }
 .instructionsBox {
   padding: 0px 1.2%;
-  border-radius: 20px;
-  border: 3px solid rgb(151, 210, 61);
+  border-radius: 1vw;
+  border: 0.3vw solid rgb(151, 210, 61);
   width: 50%;
   margin: 0 auto;
+  position: relative;
+}
+input[type="radio"] {
+  width: 1vw;
+  height: 1vw;
+  vertical-align: middle;
 }
 #instructions {
   font-size: 1.6vw;
 }
-#sampleselect {
+.sampleselect {
   font-size: 1.4vw;
   font-family: Arial, Helvetica, sans-serif;
   top: 0;

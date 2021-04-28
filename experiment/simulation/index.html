@@ -23,36 +23,30 @@
   <body>
     <div class="instructionsBox">
       <h3 id="instructions">Instructions:</h3>
-      <div id="instruction">Select any Sample</div>
-      <div class="form-check">
+      <div id="instruction" style="vertical-align: top">Select any Sample</div>
+      <div class="custom-control custom-radio" style="vertical-align: top">
         <input
-          class="form-check-input"
           type="radio"
-          name="flexRadioDefault"
+          class="custom-control-input"
+          id="defaultChecked"
+          name="defaultExampleRadios"
           onclick="removeDivs()"
         />
-        <label
-          class="radio-inline control-label"
-          for="flexRadioDefault1"
-          id="sampleselect"
+        <label class="custom-control-label sampleselect" for="defaultChecked"
+          >Aspirine</label
         >
-          Aspirine
-        </label>
       </div>
-      <div class="form-check">
+      <div class="custom-control custom-radio">
         <input
-          class="form-check-input"
           type="radio"
-          name="flexRadioDefault"
+          class="custom-control-input"
+          id="defaultChecked"
+          name="defaultExampleRadios"
           onclick="removeDivs()"
         />
-        <label
-          class="radio-inline control-label"
-          for="flexRadioDefault2"
-          id="sampleselect"
+        <label class="custom-control-label sampleselect" for="defaultChecked"
+          >2-Nitrophenol</label
         >
-          2-Nitrophenol
-        </label>
       </div>
     </div>
     <div class="container-fluid">
