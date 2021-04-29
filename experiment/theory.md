@@ -47,7 +47,7 @@ Salient features of EI method:
 
 Mass analyzer is the part of the mass spectrometer where the ionsied ions and after being accelerated by the electric field are separated based on their mass to charge ratios. Similar to ionisation technique there are different types of mass analyzers available.
 
-     	      	 Mass Analyzer| Ion separation technique
+<center><img src="images/MS_analyser.JPG"> </center><br><br>
 
 The Magnetic Sector Mass AnalyzerGreater mass to charge ratio have larger radius of the curved path Double _Focusing Mass AnalyzerSimilar to Magnetic sector buy higher resolution (10 or more folds) Quadrupole Mass Analyzer Ions with the correct mass-to-charge ratio under go stable oscillation and passes through the cylinderal rods (DC voltage and RF is appleid to the rods) before they hit the detector Time of Flight Mass Analyze (TOF)Velocities of two ions created at the same time and with same kinetic energy varies with the mass of the ions. Lighter ions have higher velocity
 
