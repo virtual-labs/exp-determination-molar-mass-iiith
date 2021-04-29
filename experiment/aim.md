@@ -2,5 +2,4 @@ Mass spectroscopy the most poweful technique to weigh the molar masses of a give
 
      		  [image](images/figure1_exp9.jpg)
 
-Picture source:
-[http://www.mhhe.com/physsci/chemistry/chang7/esp/folder_structure/cl/m3/s3/index.htm](http://www.mhhe.com/physsci/chemistry/chang7/esp/folder_structure/cl/m3/s3/index.htm)
+Picture [source](https://www.mhhe.com/physsci/chemistry/chang7/esp/folder_structure/cl/m3/s3/index.htm)
