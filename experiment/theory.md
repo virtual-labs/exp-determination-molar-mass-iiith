@@ -56,9 +56,7 @@ The Magnetic Sector Mass AnalyzerGreater mass to charge ratio have larger radius
 
 Figure 2 : Schematics of mass spectrometer with quadrupole mass analyze.
 
-Picture source:
-
-[http://compbio.pbworks.com/w/page/16252899/Mass%20Spectrophotometry%20and%20Protein%20Interaction%20Networks](http://compbio.pbworks.com/w/page/16252899/Mass%20Spectrophotometry%20and%20Protein%20Interaction%20Networks)
+Picture [source](https://compbio.pbworks.com/w/page/16252899/Mass%20Spectrophotometry%20and%20Protein%20Interaction%20Networks)
 
 **The magnetic sector mass analysis:**
 
@@ -83,9 +81,7 @@ Greater the value of m/z value larger is the radius of the curved path. The anal
 	    [image6](images/MS_analyser.JPG)	  
 
 
-Picture source:
-
-[http://orgchemguide.blogspot.in/2011/04/magnetic-deflection-or-sector-mass.html](http://orgchemguide.blogspot.in/2011/04/magnetic-deflection-or-sector-mass.html)
+Picture [source](https://orgchemguide.blogspot.in/2011/04/magnetic-deflection-or-sector-mass.html)
 
 **5. Detector:**
 
