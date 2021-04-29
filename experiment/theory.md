@@ -51,8 +51,9 @@ Mass analyzer is the part of the mass spectrometer where the ionsied ions and af
 
 The Magnetic Sector Mass AnalyzerGreater mass to charge ratio have larger radius of the curved path Double _Focusing Mass AnalyzerSimilar to Magnetic sector buy higher resolution (10 or more folds) Quadrupole Mass Analyzer Ions with the correct mass-to-charge ratio under go stable oscillation and passes through the cylinderal rods (DC voltage and RF is appleid to the rods) before they hit the detector Time of Flight Mass Analyze (TOF)Velocities of two ions created at the same time and with same kinetic energy varies with the mass of the ions. Lighter ions have higher velocity
 
-    	     
-		[image2](images/figure2_exp9.jpg)
+<center><img src="images/figure2_exp9.jpg"> </center><br><br>
+
+    
 
 Figure 2 : Schematics of mass spectrometer with quadrupole mass analyze.
 
@@ -62,23 +63,28 @@ Picture [source](https://compbio.pbworks.com/w/page/16252899/Mass%20Spectrophoto
 
 The kinetic energy of an accelarated ion imparted by the voltage V is:
 
+<center><img src="images/eq11.png"> </center><br><br>
 
-    	    	[image3](images/eq11.png)   
+    	  
 
 where m is the mass of the ion, v is its velocity and z is the charge. When the ions pass through the two poles of a magent, the charged particles take a curve path. The radius of curvature (r) of this path is:
 
-      	       [image4](images/eq21.png)
+  <center><img src="images/eq21.png"> </center><br><br>
+
+ 
 
 where B is the magnetic field strength.
 
 Combining the above two equations:
 
+<center><img src="images/eq31.png"> </center><br><br>
 
-	      [image5](images/eq31.png)
+
+	
 
 Greater the value of m/z value larger is the radius of the curved path. The analyser tube has a fixed radius of curvature and the magnetic field strength is varied such that all the ions reach the detector.
 
-	    [image6](images/MS_analyser.JPG)	  
+<center><img src="images/MS_analyser.JPG"> </center><br><br>
 
 
 Picture [source](https://orgchemguide.blogspot.in/2011/04/magnetic-deflection-or-sector-mass.html)
