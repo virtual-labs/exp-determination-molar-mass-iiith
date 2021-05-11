@@ -1,14 +1,17 @@
-[class*="row"] {
+/* [class*="row"] {
   width: auto;
   height: auto;
-}
-.spectrometer {
+} */
+
+/* .spectrometer {
   display: block;
   transform: translate(20%);
-}
-.graphwindow {
+} */
+/* .graphwindow {
   transform: translate(5%, 5.5%);
-}
+  flex-shrink: 0;
+  width: 100%;
+} */
 .action-button1 {
   background-color: #c8b028;
   border: none;
@@ -44,11 +47,6 @@
   background-color: #a9a9a9;
 }
 
-.img-overlay-wrap {
-  position: relative;
-  /* display: inline-block; <= shrinks container to image size */
-  /* transition: transform 150ms ease-in-out; */
-}
 p.ins {
   font-size: 1vw;
 }
@@ -56,23 +54,37 @@ p.ins {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.4vw;
-  position: relative;
 }
+/* .instructionsBox {
+  /* padding: 10px 0;
+  border-radius: 1vw;
+  border: 0.3vw solid rgb(151, 210, 61);
+  background-color: white;
+  width: 100%;
+  margin: 0 auto; */
+/* position: -webkit-sticky; Required for Safari */
+/* position: fixed;
+  top: 0;
+  z-index: 5; 
+} */
+
 .instructionsBox {
   padding: 0px 1.2%;
   border-radius: 1vw;
   border: 0.3vw solid rgb(151, 210, 61);
+  background-color: white;
   width: 50%;
   margin: 0 auto;
-  position: relative;
 }
+
 input[type="radio"] {
   width: 1vw;
   height: 1vw;
   vertical-align: middle;
 }
-#instructions {
-  font-size: 1.6vw;
+#instructions,
+#instruction {
+  font-size: 1.4rem;
 }
 .sampleselect {
   font-size: 1.4vw;
@@ -81,29 +93,45 @@ input[type="radio"] {
   left: 0;
 }
 .heavy {
-  font-size: 30px;
+  font-size: 2.2rem;
 }
-#AnimationBottomRight {
+/* #AnimationBottomRight {
   transform: translate(0, -15%);
-}
+} */
 #solutionbeaker {
   transform: translateX(70%);
 }
-.chhotu {
-  transform: translateY(-30%);
-}
-#animationText {
-  transform: translateY(-324%);
-}
+
 .heavy2 {
   font-size: 1.4vw;
 }
-.animationText {
-  transform: translateY(-90%);
-  border: 0.2vw solid rgb(185, 106, 42);
-  padding: 0% 1.2%;
-  margin: 0 auto;
-  border-radius: 1vw;
-  position: relative;
-  height: 16%;
+
+#AnimationBottomRight {
+  max-width: 90%;
+}
+
+.grahphwindow {
+  max-width: 90%;
+}
+
+@media (max-width: 576px) {
+  .instructionsBox {
+    height: auto;
+    font-size: 2vw;
+    width: 80%;
+  }
+  #instructions,
+  #instruction {
+    font-size: 1.3rem;
+  }
+  .spectrometer {
+    width: 70%;
+    height: auto;
+    margin-left: 5rem;
+  }
+}
+
+input[type="radio"] {
+  width: 5%;
+  height: 2.2rem;
 }
