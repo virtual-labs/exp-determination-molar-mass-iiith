@@ -131,6 +131,12 @@ input[type="radio"] {
   }
 }
 
+@media (max-width: 400px) {
+  #syringe {
+    width: 5%;
+  }
+}
+
 input[type="radio"] {
   width: 5%;
   height: 2.2rem;
