@@ -73,8 +73,11 @@ p.ins {
   border-radius: 1vw;
   border: 0.3vw solid rgb(151, 210, 61);
   background-color: white;
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
+  position: static;
+  top: 0;
+  z-index: 5;
 }
 
 input[type="radio"] {

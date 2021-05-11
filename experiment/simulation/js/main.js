@@ -321,3 +321,20 @@ var observationMessages = [
   "The ions are sorted and separated by the magnetic field according to their mass/charge ratio.",
   "Now observe the graph being plotted. These lines demonstrate the molar mass of the compound in the solution Bottle.",
 ];
+
+// The following block will add Sticky Observations box
+$(window).scroll(function (e) {
+  let $el = $(".instructionsBox");
+  let isPositionFixed = $el.css("position") == "fixed";
+  if ($(this).scrollTop() > 200 && !isPositionFixed) {
+    $el.css({
+      position: "fixed",
+      top: "0px",
+      left: "50%",
+      margin: "0 0 0 -37.5%",
+    });
+  }
+  if ($(this).scrollTop() < 200 && isPositionFixed) {
+    $el.css({ position: "static", top: "0px", left: "0", margin: "0 auto" });
+  }
+});
