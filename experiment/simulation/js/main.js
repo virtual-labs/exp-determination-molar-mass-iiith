@@ -1,4 +1,3 @@
-//Your JavaScript goes in here
 let startAnimation = async () => {
   const line = document.getElementById("half_grad");
   const yFinalPosition = 0;
@@ -44,35 +43,27 @@ function pur() {
   changeMessage();
   let image = document.getElementById("spoon1");
   image.setAttribute("opacity", "1");
-  console.log(image);
   image.style.transform = "translate(200%, -5%);";
   image.style.pointerEvents = "none";
   let a1 = anime.timeline({
     targets: "#spoon1",
     duration: 800,
     easing: "linear",
-    // opacity: "0",
-    // translateX: "200%",
   });
   a1.add({
     duration: 0,
     translateX: "250%",
     translateY: "-25%",
-    // opacity: "0",
   })
     .add({
       duration: 800,
       translateY: "5%",
     })
     .add({
-      // duration: 800,
       translateY: "-25%",
       update: function (anim) {
-        // message = instructionMessages[1];
         document.getElementById("spoonmouth").style.fill = "#b83dba";
         document.getElementById("spoonmouth").style.opacity = "1";
-        // console.log(document.getElementById("spoonmouth"));
-        // document.getElementById("message").innerHTML = message;
       },
     })
     .add({
@@ -86,7 +77,6 @@ function pur() {
     })
     .add({
       update: function (anim) {
-        // message = instructionMessages[1];
         document.getElementById("spoonmouth").style.fill = "#b83dba";
         document.getElementById("spoonmouth").style.opacity = "0";
         document.getElementById("pinkbottom").style.fill = "#b83dba";
@@ -97,20 +87,16 @@ function pur() {
 }
 async function liftPiston() {
   let image = document.getElementById("syringepiston");
-  // console.log(image);
   image.style.transform = "translate(100%, -5%);";
   image.style.pointerEvents = "none";
   let a1 = anime.timeline({
     targets: "#syringepiston",
     duration: 800,
     easing: "linear",
-    // opacity: "0",
-    // translateX: "200%",
   });
   a1.add({
     duration: 0,
     translateY: "8%",
-    // opacity: "0",
   }).add({
     duration: 800,
     translateY: "-3%",
@@ -125,8 +111,6 @@ async function movePipette() {
     targets: "#pipette",
     duration: 800,
     easing: "linear",
-    // opacity: "0",
-    // translateX: "200%",
   });
   a1.add({
     duration: 0,
@@ -135,10 +119,6 @@ async function movePipette() {
   });
   fillPipette();
   await new Promise((r) => setTimeout(r, 1000));
-  // console.log("adww");
-  // liftPiston();
-  // fillSyringe();
-  // sleep(1);
   a1.add({
     duration: 500,
     translateX: "-110%",
@@ -206,7 +186,6 @@ async function moveSyringe() {
 async function shakeBeaker() {
   changeMessage();
   let image = document.getElementById("solutionbeaker");
-  // image.style.pointerEvents = "none";
   let a1 = anime
     .timeline({
       targets: "#solutionbeaker",
