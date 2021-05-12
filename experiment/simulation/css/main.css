@@ -125,12 +125,17 @@ input[type="radio"] {
   }
   #instructions,
   #instruction {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   .spectrometer {
     width: 70%;
     height: auto;
-    margin-left: 5rem;
+  }
+  .spectrometerdiv {
+    text-align: center;
+  }
+  .bottom-row {
+    text-align: center;
   }
 }
 

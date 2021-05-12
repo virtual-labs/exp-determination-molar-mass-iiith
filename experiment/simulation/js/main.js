@@ -13,7 +13,7 @@ let startAnimation = async () => {
   }, 1);
 };
 let fillSyringe = async (x) => {
-  if (x == 1) document.getElementById("line3").style.stopColor = "#00a8f3";
+  if (x === 1) document.getElementById("line3").style.stopColor = "#00a8f3";
   else document.getElementById("line3").style.stopColor = "orange";
   const line = document.getElementById("half_grad3");
   const yFinalPosition = 0;
@@ -42,12 +42,12 @@ let fillPipette = async () => {
 };
 function pur() {
   changeMessage();
-  var image = document.getElementById("spoon1");
+  let image = document.getElementById("spoon1");
   image.setAttribute("opacity", "1");
   console.log(image);
   image.style.transform = "translate(200%, -5%);";
   image.style.pointerEvents = "none";
-  var a1 = anime.timeline({
+  let a1 = anime.timeline({
     targets: "#spoon1",
     duration: 800,
     easing: "linear",
@@ -96,11 +96,11 @@ function pur() {
   document.getElementById("solvent").setAttribute("onclick", "movePipette()");
 }
 async function liftPiston() {
-  var image = document.getElementById("syringepiston");
+  let image = document.getElementById("syringepiston");
   // console.log(image);
   image.style.transform = "translate(100%, -5%);";
   image.style.pointerEvents = "none";
-  var a1 = anime.timeline({
+  let a1 = anime.timeline({
     targets: "#syringepiston",
     duration: 800,
     easing: "linear",
@@ -118,10 +118,10 @@ async function liftPiston() {
 }
 async function movePipette() {
   changeMessage();
-  var image = document.getElementById("pipette");
+  let image = document.getElementById("pipette");
   image.setAttribute("opacity", "1");
   image.style.pointerEvents = "none";
-  var a1 = anime.timeline({
+  let a1 = anime.timeline({
     targets: "#pipette",
     duration: 800,
     easing: "linear",
@@ -159,10 +159,10 @@ async function movePipette() {
 }
 async function moveSyringe() {
   changeMessage();
-  var image = document.getElementById("syringe");
+  let image = document.getElementById("syringe");
   image.setAttribute("opacity", "1");
   image.style.pointerEvents = "none";
-  var a1 = anime.timeline({
+  let a1 = anime.timeline({
     targets: "#syringe",
     duration: 800,
     easing: "linear",
@@ -173,14 +173,14 @@ async function moveSyringe() {
   let endY = "-235%";
 
   if (screen.width < 577) {
-    startX = "-175%";
+    startX = "-120%";
     startY = "-630%";
     endX = "-350%";
     endY = "80%";
   }
 
   if (screen.width < 400) {
-    startX = "-400%";
+    startX = "-200%";
     startY = "-1000%";
     endX = "-550%";
     endY = "125%";
@@ -205,9 +205,9 @@ async function moveSyringe() {
 }
 async function shakeBeaker() {
   changeMessage();
-  var image = document.getElementById("solutionbeaker");
+  let image = document.getElementById("solutionbeaker");
   // image.style.pointerEvents = "none";
-  var a1 = anime
+  let a1 = anime
     .timeline({
       targets: "#solutionbeaker",
       duration: 800,
@@ -233,10 +233,10 @@ async function shakeBeaker() {
     .setAttribute("onclick", "moveSyringe2()");
 }
 async function moveSyringe2() {
-  var image = document.getElementById("syringe");
+  let image = document.getElementById("syringe");
   image.style.opacity = 1;
   image.style.pointerEvents = "none";
-  var a1 = anime.timeline({
+  let a1 = anime.timeline({
     targets: "#syringe",
     duration: 800,
     easing: "linear",
@@ -248,14 +248,14 @@ async function moveSyringe2() {
   let endY = "-235%";
 
   if (screen.width < 577) {
-    startX = "-520%";
+    startX = "-470%";
     startY = "-350%";
     endX = "-350%";
     endY = "80%";
   }
 
   if (screen.width < 400) {
-    startX = "-1000%";
+    startX = "-760%";
     startY = "-550%";
     endX = "-550%";
     endY = "125%";
@@ -297,14 +297,14 @@ async function moveSyringe2() {
   document.getElementById("instruction").innerHTML = observationMessages[iter2];
   startAnimation();
 }
-var instructionMessages = [
+let instructionMessages = [
   "Click on the solvent bottle to draw 1 ml of the solvent (methanol) and inject it into the sample inlet to clean any impurity in the sample pathway of the mass spectrometer.",
   "Click on the sample bottle to transfer small amount (around 1mg) of the substance into the empty solution bottle",
   "Click on the solvent bottle to transfer 5 ml of the solvent (methanol) to the substance taken.",
   "Click on the  solution bottle to make a clear solution.",
   "Click on the solution Bottle to draw 1 ml of the sample prepared to load on to the mass spectrometer.",
 ];
-var iter1 = -1;
+let iter1 = -1;
 function changeMessage() {
   iter1++;
   document.getElementById("instruction").innerHTML = instructionMessages[iter1];
@@ -313,8 +313,8 @@ function removeDivs() {
   changeMessage();
   $("div").remove(".custom-control,.custom-radio");
 }
-var iter2 = -1;
-var observationMessages = [
+let iter2 = -1;
+let observationMessages = [
   "Now observe the zoomed in animation of mass spectromter. The sample is introduced into the vaporisation chamber which is instantly vapourised due to high vacuum and heat.",
   "Positively charged radical ions are formed by bombardment of beam of high energy electrons.",
   "The positively charged radical ions are accelerated by perforated negative electrodes",
@@ -325,7 +325,7 @@ var observationMessages = [
 // The following block will add Sticky Observations box
 $(window).scroll(function (e) {
   let $el = $(".instructionsBox");
-  let isPositionFixed = $el.css("position") == "fixed";
+  let isPositionFixed = $el.css("position") === "fixed";
   if ($(this).scrollTop() > 200 && !isPositionFixed) {
     $el.css({
       position: "fixed",
