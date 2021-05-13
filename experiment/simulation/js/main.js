@@ -1,5 +1,5 @@
 let startAnimation = async () => {
-  const line = document.getElementById("half_grad");
+  const line = document.getElementById("half-grad");
   const yFinalPosition = 0;
   let yPos = 100;
   const interval = window.setInterval(() => {
@@ -14,7 +14,7 @@ let startAnimation = async () => {
 let fillSyringe = async (x) => {
   if (x === 1) document.getElementById("line3").style.stopColor = "#00a8f3";
   else document.getElementById("line3").style.stopColor = "orange";
-  const line = document.getElementById("half_grad3");
+  const line = document.getElementById("half-grad3");
   const yFinalPosition = 0;
   let yPos = 100;
   const interval = window.setInterval(() => {
@@ -27,7 +27,7 @@ let fillSyringe = async (x) => {
   }, 1);
 };
 let fillPipette = async () => {
-  const line = document.getElementById("half_grad2");
+  const line = document.getElementById("half-grad2");
   const yFinalPosition = 0;
   let yPos = 100;
   const interval = window.setInterval(() => {
@@ -62,8 +62,8 @@ function pur() {
     .add({
       translateY: "-25%",
       update: function (anim) {
-        document.getElementById("spoonmouth").style.fill = "#b83dba";
-        document.getElementById("spoonmouth").style.opacity = "1";
+        document.getElementById("spoon-mouth").style.fill = "#b83dba";
+        document.getElementById("spoon-mouth").style.opacity = "1";
       },
     })
     .add({
@@ -77,20 +77,20 @@ function pur() {
     })
     .add({
       update: function (anim) {
-        document.getElementById("spoonmouth").style.fill = "#b83dba";
-        document.getElementById("spoonmouth").style.opacity = "0";
-        document.getElementById("pinkbottom").style.fill = "#b83dba";
+        document.getElementById("spoon-mouth").style.fill = "#b83dba";
+        document.getElementById("spoon-mouth").style.opacity = "0";
+        document.getElementById("pink-bottom").style.fill = "#b83dba";
       },
       opacity: 0,
     });
   document.getElementById("solvent").setAttribute("onclick", "movePipette()");
 }
 async function liftPiston() {
-  let image = document.getElementById("syringepiston");
+  let image = document.getElementById("syringe-piston");
   image.style.transform = "translate(100%, -5%);";
   image.style.pointerEvents = "none";
   let a1 = anime.timeline({
-    targets: "#syringepiston",
+    targets: "#syringe-piston",
     duration: 800,
     easing: "linear",
   });
@@ -129,12 +129,12 @@ async function movePipette() {
     })
     .add({
       update: function (anim) {
-        document.getElementById("layerabovepink").style.fill = "#00a8f3";
+        document.getElementById("layer-above-pink").style.fill = "#00a8f3";
       },
       opacity: 0,
     });
   document
-    .getElementById("solutionbeaker")
+    .getElementById("solution-beaker")
     .setAttribute("onclick", "shakeBeaker()");
 }
 async function moveSyringe() {
@@ -185,10 +185,10 @@ async function moveSyringe() {
 }
 async function shakeBeaker() {
   changeMessage();
-  let image = document.getElementById("solutionbeaker");
+  let image = document.getElementById("solution-beaker");
   let a1 = anime
     .timeline({
-      targets: "#solutionbeaker",
+      targets: "#solution-beaker",
       duration: 800,
       easing: "easeInOutSine",
       direction: "alternate",
@@ -203,12 +203,12 @@ async function shakeBeaker() {
     })
     .add({
       update: function (anim) {
-        document.getElementById("layerabovepink").style.fill = "orange";
-        document.getElementById("pinkbottom").style.fill = "orange";
+        document.getElementById("layer-above-pink").style.fill = "orange";
+        document.getElementById("pink-bottom").style.fill = "orange";
       },
     });
   document
-    .getElementById("solutionbeaker")
+    .getElementById("solution-beaker")
     .setAttribute("onclick", "moveSyringe2()");
 }
 async function moveSyringe2() {
@@ -257,7 +257,7 @@ async function moveSyringe2() {
     translateY: endY,
     translateX: endX,
   });
-  document.getElementById("AnimationBottomRight").play();
+  document.getElementById("animation-bottom-right").play();
   document.getElementById("instructions").innerHTML = "Observations:";
   await new Promise((r) => setTimeout(r, 2000));
   iter2 += 1;
@@ -300,20 +300,3 @@ let observationMessages = [
   "The ions are sorted and separated by the magnetic field according to their mass/charge ratio.",
   "Now observe the graph being plotted. These lines demonstrate the molar mass of the compound in the solution Bottle.",
 ];
-
-// The following block will add Sticky Observations box
-$(window).scroll(function (e) {
-  let $el = $(".instructionsBox");
-  let isPositionFixed = $el.css("position") === "fixed";
-  if ($(this).scrollTop() > 200 && !isPositionFixed) {
-    $el.css({
-      position: "fixed",
-      top: "0px",
-      left: "50%",
-      margin: "0 0 0 -37.5%",
-    });
-  }
-  if ($(this).scrollTop() < 200 && isPositionFixed) {
-    $el.css({ position: "static", top: "0px", left: "0", margin: "0 auto" });
-  }
-});

@@ -1,49 +1,11 @@
-.action-button1 {
-  background-color: #c8b028;
-  border: none;
-  color: white;
-  padding: 8px 1px;
-  text-align: center;
-  border-radius: 3px;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 0.8vw;
-  margin: 0 auto;
-  cursor: pointer;
-  width: 10%;
-}
-.action-button2 {
-  background-color: #bb3d0b;
-  border: none;
-  color: white;
-  padding: 8px 1px;
-  text-align: center;
-  border-radius: 3px;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 0.8vw;
-  margin: 0 auto;
-  cursor: pointer;
-  width: 10%;
-}
-.action-button1:hover {
-  background-color: #a9a9a9;
-}
-.action-button2:hover {
-  background-color: #a9a9a9;
-}
-
-p.ins {
-  font-size: 1vw;
-}
 #instruction {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.4vw;
 }
 
-.instructionsBox {
-  padding: 0px 1.2%;
+.instructions-box {
+  padding: 1.2% 1.2%;
   border-radius: 1vw;
   border: 0.3vw solid rgb(151, 210, 61);
   background-color: white;
@@ -55,46 +17,48 @@ p.ins {
 }
 
 input[type="radio"] {
-  width: 1vw;
-  height: 1vw;
+  width: 20px;
+  height: 20px;
   vertical-align: middle;
 }
+
 #instructions,
 #instruction {
   font-size: 1.4rem;
 }
-.sampleselect {
-  font-size: 1.4vw;
+
+.sample-select {
+  font-size: 1.3rem;
   font-family: Arial, Helvetica, sans-serif;
   top: 0;
   left: 0;
 }
+
+.custom-control-input {
+  margin-right: 0.4rem;
+}
+
+.first-button {
+  margin-bottom: 0.3rem;
+}
+
 .heavy {
   font-size: 2.2rem;
 }
 
-#solutionbeaker {
+#solution-beaker {
   transform: translateX(70%);
 }
 
-.heavy2 {
-  font-size: 1.4vw;
-}
-
-#AnimationBottomRight {
+#animation-bottom-right {
   max-width: 90%;
 }
 
-.grahphwindow {
-  max-width: 90%;
+#instruction {
+  vertical-align: top;
 }
 
 @media (max-width: 576px) {
-  .instructionsBox {
-    height: auto;
-    font-size: 2vw;
-    width: 80%;
-  }
   #instructions,
   #instruction {
     font-size: 1.2rem;
@@ -103,7 +67,7 @@ input[type="radio"] {
     width: 70%;
     height: auto;
   }
-  .spectrometerdiv {
+  .apparatus-spectrometer {
     text-align: center;
   }
   .bottom-row {
@@ -115,9 +79,4 @@ input[type="radio"] {
   #syringe {
     width: 5%;
   }
-}
-
-input[type="radio"] {
-  width: 5%;
-  height: 2.2rem;
 }
