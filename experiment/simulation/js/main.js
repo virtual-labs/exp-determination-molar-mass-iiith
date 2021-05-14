@@ -1,3 +1,4 @@
+let overallIteration = 0;
 let startAnimation = async () => {
   const line = document.getElementById("half-grad");
   const yFinalPosition = 0;
@@ -12,20 +13,27 @@ let startAnimation = async () => {
   }, 1);
 };
 let fillSyringe = async (x) => {
-  if (x === 1) document.getElementById("line3").style.stopColor = "#00a8f3";
-  else document.getElementById("line3").style.stopColor = "orange";
-  const line = document.getElementById("half-grad3");
-  const yFinalPosition = 0;
-  let yPos = 100;
-  const interval = window.setInterval(() => {
-    if (yPos < yFinalPosition) {
-      line.setAttribute("y1", "0.1%");
-      return window.clearInterval(interval);
+  if (overallIteration === 1 || overallIteration === 5) {
+    if (x === 1 && overallIteration === 1) {
+      document.getElementById("line3").style.stopColor = "#00a8f3";
+    } else if (x != 1 && overallIteration === 5) {
+      document.getElementById("line3").style.stopColor = "orange";
     }
-    yPos -= 0.6;
-    line.setAttribute("y1", `${yPos}%`);
-  }, 1);
+    const line = document.getElementById("half-grad3");
+    const yFinalPosition = 0;
+    let yPos = 100;
+    const interval = window.setInterval(() => {
+      if (yPos < yFinalPosition) {
+        line.setAttribute("y1", "0.1%");
+        return window.clearInterval(interval);
+      }
+      yPos -= 0.6;
+      line.setAttribute("y1", `${yPos}%`);
+    }, 1);
+    overallIteration++;
+  }
 };
+
 let fillPipette = async () => {
   const line = document.getElementById("half-grad2");
   const yFinalPosition = 0;
@@ -39,51 +47,55 @@ let fillPipette = async () => {
     line.setAttribute("y1", `${yPos}%`);
   }, 1);
 };
+
 function pur() {
-  changeMessage();
-  let image = document.getElementById("spoon1");
-  image.setAttribute("opacity", "1");
-  image.style.transform = "translate(200%, -5%);";
-  image.style.pointerEvents = "none";
-  let a1 = anime.timeline({
-    targets: "#spoon1",
-    duration: 800,
-    easing: "linear",
-  });
-  a1.add({
-    duration: 0,
-    translateX: "250%",
-    translateY: "-25%",
-  })
-    .add({
+  if (overallIteration === 2) {
+    changeMessage();
+    let image = document.getElementById("spoon1");
+    image.setAttribute("opacity", "1");
+    image.style.transform = "translate(200%, -5%);";
+    image.style.pointerEvents = "none";
+    let a1 = anime.timeline({
+      targets: "#spoon1",
       duration: 800,
-      translateY: "5%",
-    })
-    .add({
-      translateY: "-25%",
-      update: function (anim) {
-        document.getElementById("spoon-mouth").style.fill = "#b83dba";
-        document.getElementById("spoon-mouth").style.opacity = "1";
-      },
-    })
-    .add({
-      duration: 800,
-      translateX: "450%",
-      translateY: "200%",
-    })
-    .add({
-      delay: "800",
-      rotateZ: "45",
-    })
-    .add({
-      update: function (anim) {
-        document.getElementById("spoon-mouth").style.fill = "#b83dba";
-        document.getElementById("spoon-mouth").style.opacity = "0";
-        document.getElementById("pink-bottom").style.fill = "#b83dba";
-      },
-      opacity: 0,
+      easing: "linear",
     });
-  document.getElementById("solvent").setAttribute("onclick", "movePipette()");
+    a1.add({
+      duration: 0,
+      translateX: "250%",
+      translateY: "-25%",
+    })
+      .add({
+        duration: 800,
+        translateY: "5%",
+      })
+      .add({
+        translateY: "-25%",
+        update: function (anim) {
+          document.getElementById("spoon-mouth").style.fill = "#b83dba";
+          document.getElementById("spoon-mouth").style.opacity = "1";
+        },
+      })
+      .add({
+        duration: 800,
+        translateX: "450%",
+        translateY: "200%",
+      })
+      .add({
+        delay: "800",
+        rotateZ: "45",
+      })
+      .add({
+        update: function (anim) {
+          document.getElementById("spoon-mouth").style.fill = "#b83dba";
+          document.getElementById("spoon-mouth").style.opacity = "0";
+          document.getElementById("pink-bottom").style.fill = "#b83dba";
+        },
+        opacity: 0,
+      });
+    document.getElementById("solvent").setAttribute("onclick", "movePipette()");
+    overallIteration++;
+  }
 }
 async function liftPiston() {
   let image = document.getElementById("syringe-piston");
@@ -103,178 +115,194 @@ async function liftPiston() {
   });
 }
 async function movePipette() {
-  changeMessage();
-  let image = document.getElementById("pipette");
-  image.setAttribute("opacity", "1");
-  image.style.pointerEvents = "none";
-  let a1 = anime.timeline({
-    targets: "#pipette",
-    duration: 800,
-    easing: "linear",
-  });
-  a1.add({
-    duration: 0,
-    translateY: "-90%",
-    translateX: "450%",
-  });
-  fillPipette();
-  await new Promise((r) => setTimeout(r, 1000));
-  a1.add({
-    duration: 500,
-    translateX: "-110%",
-  })
-    .add({
+  if (overallIteration === 3) {
+    changeMessage();
+    let image = document.getElementById("pipette");
+    image.setAttribute("opacity", "1");
+    image.style.pointerEvents = "none";
+    let a1 = anime.timeline({
+      targets: "#pipette",
       duration: 800,
-      translateY: "170%",
-    })
-    .add({
-      update: function (anim) {
-        document.getElementById("layer-above-pink").style.fill = "#00a8f3";
-      },
-      opacity: 0,
+      easing: "linear",
     });
-  document
-    .getElementById("solution-beaker")
-    .setAttribute("onclick", "shakeBeaker()");
+    a1.add({
+      duration: 0,
+      translateY: "-90%",
+      translateX: "450%",
+    });
+    fillPipette();
+    await new Promise((r) => setTimeout(r, 1000));
+    a1.add({
+      duration: 500,
+      translateX: "-110%",
+    })
+      .add({
+        duration: 800,
+        translateY: "170%",
+      })
+      .add({
+        update: function (anim) {
+          document.getElementById("layer-above-pink").style.fill = "#00a8f3";
+        },
+        opacity: 0,
+      });
+    document
+      .getElementById("solution-beaker")
+      .setAttribute("onclick", "shakeBeaker()");
+    overallIteration++;
+  }
 }
 async function moveSyringe() {
-  changeMessage();
-  let image = document.getElementById("syringe");
-  image.setAttribute("opacity", "1");
-  image.style.pointerEvents = "none";
-  let a1 = anime.timeline({
-    targets: "#syringe",
-    duration: 800,
-    easing: "linear",
-  });
-  let startX = "-530%";
-  let startY = "-550%";
-  let endX = "800%";
-  let endY = "-235%";
+  if (overallIteration === 1) {
+    changeMessage();
+    let image = document.getElementById("syringe");
+    image.setAttribute("opacity", "1");
+    image.style.pointerEvents = "none";
+    let a1 = anime.timeline({
+      targets: "#syringe",
+      duration: 800,
+      easing: "linear",
+    });
+    let startX = "-530%";
+    let startY = "-550%";
+    let endX = "800%";
+    let endY = "-235%";
 
-  if (screen.width < 577) {
-    startX = "-120%";
-    startY = "-630%";
-    endX = "-350%";
-    endY = "80%";
+    if (screen.width < 577) {
+      startX = "-120%";
+      startY = "-630%";
+      endX = "-350%";
+      endY = "80%";
+    }
+
+    if (screen.width < 400) {
+      startX = "-200%";
+      startY = "-1000%";
+      endX = "-550%";
+      endY = "125%";
+    }
+
+    a1.add({
+      duration: 0,
+      translateY: startY,
+      translateX: startX,
+    });
+    liftPiston();
+    fillSyringe(1);
+    await new Promise((r) => setTimeout(r, 1000));
+    a1.add({
+      duration: 100,
+      rotateZ: 90,
+    }).add({
+      duration: 1000,
+      translateY: endY,
+      translateX: endX,
+    });
   }
-
-  if (screen.width < 400) {
-    startX = "-200%";
-    startY = "-1000%";
-    endX = "-550%";
-    endY = "125%";
-  }
-
-  a1.add({
-    duration: 0,
-    translateY: startY,
-    translateX: startX,
-  });
-  liftPiston();
-  fillSyringe(1);
-  await new Promise((r) => setTimeout(r, 1000));
-  a1.add({
-    duration: 100,
-    rotateZ: 90,
-  }).add({
-    duration: 1000,
-    translateY: endY,
-    translateX: endX,
-  });
 }
 async function shakeBeaker() {
-  changeMessage();
-  let image = document.getElementById("solution-beaker");
-  let a1 = anime
-    .timeline({
-      targets: "#solution-beaker",
-      duration: 800,
-      easing: "easeInOutSine",
-      direction: "alternate",
-      loop: 0,
-    })
-    .add({
-      duration: 0,
-      translateX: "70%",
-    })
-    .add({
-      rotate: [10, 0, -10, 0],
-    })
-    .add({
-      update: function (anim) {
-        document.getElementById("layer-above-pink").style.fill = "orange";
-        document.getElementById("pink-bottom").style.fill = "orange";
-      },
-    });
-  document
-    .getElementById("solution-beaker")
-    .setAttribute("onclick", "moveSyringe2()");
+  if (overallIteration === 4) {
+    changeMessage();
+    let image = document.getElementById("solution-beaker");
+    let a1 = anime
+      .timeline({
+        targets: "#solution-beaker",
+        duration: 800,
+        easing: "easeInOutSine",
+        direction: "alternate",
+        loop: 0,
+      })
+      .add({
+        duration: 0,
+        translateX: "70%",
+      })
+      .add({
+        rotate: [10, 0, -10, 0],
+      })
+      .add({
+        update: function (anim) {
+          document.getElementById("layer-above-pink").style.fill = "orange";
+          document.getElementById("pink-bottom").style.fill = "orange";
+        },
+      });
+    document
+      .getElementById("solution-beaker")
+      .setAttribute("onclick", "moveSyringe2()");
+    overallIteration++;
+  }
 }
 async function moveSyringe2() {
-  let image = document.getElementById("syringe");
-  image.style.opacity = 1;
-  image.style.pointerEvents = "none";
-  let a1 = anime.timeline({
-    targets: "#syringe",
-    duration: 800,
-    easing: "linear",
-  });
+  if (overallIteration === 5) {
+    let image = document.getElementById("syringe");
+    image.style.opacity = 1;
+    image.style.pointerEvents = "none";
+    let a1 = anime.timeline({
+      targets: "#syringe",
+      duration: 800,
+      easing: "linear",
+    });
 
-  let startX = "-985%";
-  let startY = "-150%";
-  let endX = "800%";
-  let endY = "-235%";
+    let startX = "-985%";
+    let startY = "-150%";
+    let endX = "800%";
+    let endY = "-235%";
 
-  if (screen.width < 577) {
-    startX = "-470%";
-    startY = "-350%";
-    endX = "-350%";
-    endY = "80%";
+    if (screen.width < 577) {
+      startX = "-470%";
+      startY = "-350%";
+      endX = "-350%";
+      endY = "80%";
+    }
+
+    if (screen.width < 400) {
+      startX = "-760%";
+      startY = "-550%";
+      endX = "-550%";
+      endY = "125%";
+    }
+
+    a1.add({
+      duration: 0,
+      translateY: startY,
+      translateX: startX,
+      rotateZ: 0,
+    });
+    liftPiston();
+    fillSyringe(2);
+    await new Promise((r) => setTimeout(r, 1000));
+    a1.add({
+      duration: 100,
+      rotateZ: 90,
+    }).add({
+      duration: 1000,
+      translateY: endY,
+      translateX: endX,
+    });
+    document.getElementById("animation-bottom-right").play();
+    document.getElementById("instructions").innerHTML = "Observations:";
+    await new Promise((r) => setTimeout(r, 2000));
+    iter2 += 1;
+    document.getElementById("instruction").innerHTML =
+      observationMessages[iter2];
+    await new Promise((r) => setTimeout(r, 5000));
+    iter2 += 1;
+    document.getElementById("instruction").innerHTML =
+      observationMessages[iter2];
+    await new Promise((r) => setTimeout(r, 3000));
+    iter2 += 1;
+    document.getElementById("instruction").innerHTML =
+      observationMessages[iter2];
+    await new Promise((r) => setTimeout(r, 5000));
+    iter2 += 1;
+    document.getElementById("instruction").innerHTML =
+      observationMessages[iter2];
+    await new Promise((r) => setTimeout(r, 3000));
+    iter2 += 1;
+    document.getElementById("instruction").innerHTML =
+      observationMessages[iter2];
+    startAnimation();
+    overallIteration++;
   }
-
-  if (screen.width < 400) {
-    startX = "-760%";
-    startY = "-550%";
-    endX = "-550%";
-    endY = "125%";
-  }
-
-  a1.add({
-    duration: 0,
-    translateY: startY,
-    translateX: startX,
-    rotateZ: 0,
-  });
-  liftPiston();
-  fillSyringe(2);
-  await new Promise((r) => setTimeout(r, 1000));
-  a1.add({
-    duration: 100,
-    rotateZ: 90,
-  }).add({
-    duration: 1000,
-    translateY: endY,
-    translateX: endX,
-  });
-  document.getElementById("animation-bottom-right").play();
-  document.getElementById("instructions").innerHTML = "Observations:";
-  await new Promise((r) => setTimeout(r, 2000));
-  iter2 += 1;
-  document.getElementById("instruction").innerHTML = observationMessages[iter2];
-  await new Promise((r) => setTimeout(r, 5000));
-  iter2 += 1;
-  document.getElementById("instruction").innerHTML = observationMessages[iter2];
-  await new Promise((r) => setTimeout(r, 3000));
-  iter2 += 1;
-  document.getElementById("instruction").innerHTML = observationMessages[iter2];
-  await new Promise((r) => setTimeout(r, 5000));
-  iter2 += 1;
-  document.getElementById("instruction").innerHTML = observationMessages[iter2];
-  await new Promise((r) => setTimeout(r, 3000));
-  iter2 += 1;
-  document.getElementById("instruction").innerHTML = observationMessages[iter2];
-  startAnimation();
 }
 let instructionMessages = [
   "Click on the solvent bottle to draw 1 ml of the solvent (methanol) and inject it into the sample inlet to clean any impurity in the sample pathway of the mass spectrometer.",
@@ -291,6 +319,7 @@ function changeMessage() {
 function removeDivs() {
   changeMessage();
   $("div").remove(".custom-control,.custom-radio");
+  overallIteration = 1;
 }
 let iter2 = -1;
 let observationMessages = [
