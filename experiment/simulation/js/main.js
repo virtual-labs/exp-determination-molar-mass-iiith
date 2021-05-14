@@ -278,6 +278,8 @@ async function moveSyringe2() {
       translateY: endY,
       translateX: endX,
     });
+    await new Promise((r) => setTimeout(r, 2000));
+    autoScrollVideo();
     document.getElementById("animation-bottom-right").play();
     document.getElementById("instructions").innerHTML = "Observations:";
     await new Promise((r) => setTimeout(r, 2000));
@@ -300,10 +302,21 @@ async function moveSyringe2() {
     iter2 += 1;
     document.getElementById("instruction").innerHTML =
       observationMessages[iter2];
+    autoScrollGraph();
+    await new Promise((r) => setTimeout(r, 1000));
     startAnimation();
     overallIteration++;
   }
 }
+
+async function autoScrollVideo() {
+  $(window).scrollTop($("#animation-bottom-right").position().top);
+}
+
+async function autoScrollGraph() {
+  $(window).scrollTop($("#graph").position().top);
+}
+
 let instructionMessages = [
   "Click on the solvent bottle to draw 1 ml of the solvent (methanol) and inject it into the sample inlet to clean any impurity in the sample pathway of the mass spectrometer.",
   "Click on the sample bottle to transfer small amount (around 1mg) of the substance into the empty solution bottle",
