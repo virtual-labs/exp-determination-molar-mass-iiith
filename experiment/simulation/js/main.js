@@ -31,6 +31,12 @@ let fillSyringe = async (x) => {
       line.setAttribute("y1", `${yPos}%`);
     }, 1);
     overallIteration++;
+    if (overallIteration === 2) {
+      document.getElementById("solvent-beaker").style.cursor = "default";
+      document.getElementById("sample-beaker").style.cursor = "pointer";
+    } else if (overallIteration === 6) {
+      document.getElementById("solution-beaker").style.cursor = "default";
+    }
   }
 };
 
@@ -93,8 +99,12 @@ function pur() {
         },
         opacity: 0,
       });
-    document.getElementById("solvent").setAttribute("onclick", "movePipette()");
+    document
+      .getElementById("solvent-beaker")
+      .setAttribute("onclick", "movePipette()");
     overallIteration++;
+    document.getElementById("sample-beaker").style.cursor = "default";
+    document.getElementById("solvent-beaker").style.cursor = "pointer";
   }
 }
 async function liftPiston() {
@@ -150,6 +160,8 @@ async function movePipette() {
       .getElementById("solution-beaker")
       .setAttribute("onclick", "shakeBeaker()");
     overallIteration++;
+    document.getElementById("solvent-beaker").style.cursor = "default";
+    document.getElementById("solution-beaker").style.cursor = "pointer";
   }
 }
 async function moveSyringe() {
@@ -309,6 +321,7 @@ async function moveSyringe2() {
   }
 }
 
+// Auto scrolling implementation for graph and animation video
 async function autoScrollVideo() {
   $(window).scrollTop($("#animation-bottom-right").position().top);
 }
@@ -333,6 +346,7 @@ function removeDivs() {
   changeMessage();
   $("div").remove(".custom-control,.custom-radio");
   overallIteration = 1;
+  document.getElementById("solvent-beaker").style.cursor = "pointer";
 }
 let iter2 = -1;
 let observationMessages = [
