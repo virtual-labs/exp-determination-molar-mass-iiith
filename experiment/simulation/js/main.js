@@ -1,3 +1,5 @@
+"use strict";
+console.log("New version Built in Testing site");
 let overallIteration = 0;
 let startAnimation = async () => {
   const line = document.getElementById("half-grad");
