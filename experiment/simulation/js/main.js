@@ -1,5 +1,5 @@
 "use strict";
-console.log("Change refleceted");
+console.log("Change padding refleceted");
 let overallIteration = 0;
 let startAnimation = async () => {
   const line = document.getElementById("half-grad");
