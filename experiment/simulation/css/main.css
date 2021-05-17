@@ -4,6 +4,10 @@
   font-size: 1.4vw;
 }
 
+.observations-instructions-box {
+  margin-top: 100px;
+}
+
 .instructions-box {
   padding: 1.2% 1.2%;
   border-radius: 1vw;
