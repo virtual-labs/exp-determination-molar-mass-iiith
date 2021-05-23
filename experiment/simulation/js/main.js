@@ -1,5 +1,5 @@
 "use strict";
-let overallIteration = 0;
+let overallIteration = -3;
 let startAnimation = async () => {
   const line = document.getElementById("half-grad");
   const yFinalPosition = 0;
@@ -69,15 +69,15 @@ function pur() {
     });
     a1.add({
       duration: 0,
-      translateX: "250%",
-      translateY: "-25%",
+      translateX: "280%",
+      translateY: "-125%",
     })
       .add({
         duration: 800,
-        translateY: "5%",
+        translateY: "-55%",
       })
       .add({
-        translateY: "-25%",
+        translateY: "-125%",
         update: function (anim) {
           document.getElementById("spoon-mouth").style.fill = "#b83dba";
           document.getElementById("spoon-mouth").style.opacity = "1";
@@ -85,8 +85,8 @@ function pur() {
       })
       .add({
         duration: 800,
-        translateX: "450%",
-        translateY: "200%",
+        translateX: "500%",
+        translateY: "175%",
       })
       .add({
         delay: "800",
@@ -136,10 +136,28 @@ async function movePipette() {
       duration: 800,
       easing: "linear",
     });
+    let startX = "-980%";
+    let startY = "150%";
+
+    if (screen.width > 1533) {
+      startY = "-150%";
+      startX = "450%";
+    }
+
+    if (screen.width < 769) {
+      startY = "-110%";
+      startX = "450%";
+    }
+
+    if (screen.width < 607) {
+      startY = "120%";
+      startX = "-980%";
+    }
+
     a1.add({
       duration: 0,
-      translateY: "-90%",
-      translateX: "450%",
+      translateY: startY,
+      translateX: startX,
     });
     fillPipette();
     await new Promise((r) => setTimeout(r, 1000));
@@ -176,23 +194,24 @@ async function moveSyringe() {
       duration: 800,
       easing: "linear",
     });
-    let startX = "-530%";
-    let startY = "-550%";
-    let endX = "800%";
-    let endY = "-235%";
+    let startX = "-1620%";
+    let startY = "-350%";
+    let endX = "200%";
+    let endY = "-248%";
 
-    if (screen.width < 577) {
-      startX = "-120%";
-      startY = "-630%";
-      endX = "-350%";
-      endY = "80%";
+    if (screen.width > 1533) {
+      startX = "-950%";
+      startY = "-600%";
     }
 
-    if (screen.width < 400) {
-      startX = "-200%";
-      startY = "-1000%";
-      endX = "-550%";
-      endY = "125%";
+    if (screen.width < 769) {
+      startX = "350%";
+      startY = "-1110%";
+    }
+
+    if (screen.width < 607) {
+      startX = "-270%";
+      startY = "-890%";
     }
 
     a1.add({
@@ -227,7 +246,7 @@ async function shakeBeaker() {
       })
       .add({
         duration: 0,
-        translateX: "70%",
+        translateX: "0%",
       })
       .add({
         rotate: [10, 0, -10, 0],
@@ -255,23 +274,23 @@ async function moveSyringe2() {
       easing: "linear",
     });
 
-    let startX = "-985%";
-    let startY = "-150%";
-    let endX = "800%";
-    let endY = "-235%";
+    let startX = "-1080%";
+    let startY = "-280%";
+    let endX = "240%";
+    let endY = "-245%";
 
-    if (screen.width < 577) {
-      startX = "-470%";
-      startY = "-350%";
-      endX = "-350%";
-      endY = "80%";
+    if (screen.width > 1533) {
+      startX = "-1320%";
     }
 
-    if (screen.width < 400) {
-      startX = "-760%";
-      startY = "-550%";
-      endX = "-550%";
-      endY = "125%";
+    if (screen.width < 769) {
+      startX = "10%";
+      startY = "-810%";
+    }
+
+    if (screen.width < 607) {
+      startX = "260%";
+      startY = "-830%";
     }
 
     a1.add({
@@ -292,63 +311,88 @@ async function moveSyringe2() {
       translateX: endX,
     });
     await new Promise((r) => setTimeout(r, 2000));
-    autoScrollVideo();
+    // autoScrollVideo();
+
+    document.getElementById("experiment-setup").style.display = "none";
+    document.getElementById("animation-video").style.display = "block";
     document.getElementById("animation-bottom-right").play();
-    document.getElementById("instructions").innerHTML = "Observations:";
+    document.getElementById("head-instructions").innerHTML = "Observations";
+    document.getElementById("head-observations").innerHTML = "Observations";
+    document.getElementById("observation").innerHTML = "";
+    document.getElementById("instruction").innerHTML = "";
+
     await new Promise((r) => setTimeout(r, 2000));
-    iter2 += 1;
-    document.getElementById("instruction").innerHTML =
-      observationMessages[iter2];
+    observeMessage();
     await new Promise((r) => setTimeout(r, 5000));
-    iter2 += 1;
-    document.getElementById("instruction").innerHTML =
-      observationMessages[iter2];
+    observeMessage();
     await new Promise((r) => setTimeout(r, 3000));
-    iter2 += 1;
-    document.getElementById("instruction").innerHTML =
-      observationMessages[iter2];
+    observeMessage();
     await new Promise((r) => setTimeout(r, 5000));
-    iter2 += 1;
-    document.getElementById("instruction").innerHTML =
-      observationMessages[iter2];
+    observeMessage();
     await new Promise((r) => setTimeout(r, 3000));
-    iter2 += 1;
-    document.getElementById("instruction").innerHTML =
-      observationMessages[iter2];
-    autoScrollGraph();
+    observeMessage();
+
     await new Promise((r) => setTimeout(r, 1000));
+
+    document.getElementById("animation-video").style.display = "none";
+    document.getElementById("plotted-graph-window").style.display = "block";
     startAnimation();
     overallIteration++;
   }
 }
 
-// Auto scrolling implementation for graph and animation video
-async function autoScrollVideo() {
-  $(window).scrollTop($("#animation-bottom-right").position().top);
+let setupMessages = [
+  "Click on the Sample Beaker option in the Apparatus Menu to introduce it into the workspace.",
+  "Click on the Solvent Beaker option in the Apparatus Menu to introduce it into the workspace.",
+  "Click on the Solution Beaker option in the Apparatus Menu to introduce it into the workspace.",
+  "Click on the Mass Spectrometer option in the Apparatus Menu to introduce it into the workspace.",
+];
+
+let setup = 0;
+
+function setupMessage() {
+  document.getElementById("instruction").innerHTML = setupMessages[setup];
+  document.getElementById("observation").innerHTML = setupMessages[setup];
+  setup++;
 }
 
-async function autoScrollGraph() {
-  $(window).scrollTop($("#graph").position().top);
+setupMessage();
+async function visibility(x) {
+  if (x === 1 && overallIteration === -3) {
+    document.getElementById("sample-beaker").style.visibility = "visible";
+    overallIteration++;
+    setupMessage();
+  } else if (x === 2 && overallIteration === -2) {
+    document.getElementById("solvent-beaker").style.visibility = "visible";
+    overallIteration++;
+    setupMessage();
+  } else if (x === 3 && overallIteration === -1) {
+    document.getElementById("solution-beaker").style.visibility = "visible";
+    overallIteration++;
+    setupMessage();
+  } else if (x === 4 && overallIteration === 0) {
+    document.getElementById("spectrometer").style.visibility = "visible";
+    overallIteration++;
+    changeMessage();
+  }
 }
 
 let instructionMessages = [
-  "Click on the solvent bottle to draw 1 ml of the solvent (methanol) and inject it into the sample inlet to clean any impurity in the sample pathway of the mass spectrometer.",
-  "Click on the sample bottle to transfer small amount (around 1mg) of the substance into the empty solution bottle",
-  "Click on the solvent bottle to transfer 5 ml of the solvent (methanol) to the substance taken.",
-  "Click on the  solution bottle to make a clear solution.",
-  "Click on the solution Bottle to draw 1 ml of the sample prepared to load on to the mass spectrometer.",
+  "Click on the Solvent beaker to draw 1 ml of the solvent (methanol) and inject it into the sample inlet to clean any impurity in the sample pathway of the mass spectrometer.",
+  "Click on the Sample beaker to transfer small amount (around 1mg) of the substance into the empty solution bottle",
+  "Click on the Solvent beaker to transfer 5 ml of the solvent (methanol) to the substance taken.",
+  "Click on the  Solution beaker to shake it and make a clear solution.",
+  "Click on the Solution beaker to draw 1 ml of the sample prepared to load on to the mass spectrometer.",
 ];
 let iter1 = -1;
 function changeMessage() {
   iter1++;
   document.getElementById("instruction").innerHTML = instructionMessages[iter1];
+  document.getElementById("observation").innerHTML = instructionMessages[iter1];
 }
-function removeDivs() {
-  changeMessage();
-  $("div").remove(".custom-control,.custom-radio");
-  overallIteration = 1;
-  document.getElementById("solvent-beaker").style.cursor = "pointer";
-}
+
+document.getElementById("solvent-beaker").style.cursor = "pointer";
+
 let iter2 = -1;
 let observationMessages = [
   "Now observe the zoomed in animation of mass spectromter. The sample is introduced into the vaporisation chamber which is instantly vapourised due to high vacuum and heat.",
@@ -357,3 +401,36 @@ let observationMessages = [
   "The ions are sorted and separated by the magnetic field according to their mass/charge ratio.",
   "Now observe the graph being plotted. These lines demonstrate the molar mass of the compound in the solution Bottle.",
 ];
+
+function observeMessage() {
+  iter2++;
+  document.getElementById("instruction").innerHTML = observationMessages[iter2];
+  document.getElementById("observation").innerHTML = observationMessages[iter2];
+}
+
+async function restart() {
+  document.getElementById("simulation").style.width = "100%";
+
+  document.getElementById("animation-video").style.display = "none";
+  document.getElementById("plotted-graph-window").style.display = "none";
+
+  document.getElementById("head-instructions").innerHTML = "Instructions";
+  document.getElementById("head-observations").innerHTML = "Instructions";
+  document.getElementById("instruction").innerHTML = "";
+  document.getElementById("observation").innerHTML = "";
+
+  overallIteration = -3;
+  iter2 = -1;
+  iter1 = -1;
+  setup = 0;
+
+  setupMessage();
+
+  document.getElementById("experiment-setup").style.display = "block";
+  document.getElementById("syringe").style.display = "none";
+  document.getElementById("sample-beaker").style.visibility = "hidden";
+  document.getElementById("solvent-beaker").style.visibility = "hidden";
+  document.getElementById("solution-beaker").style.visibility = "hidden";
+  document.getElementById("spectrometer").style.visibility = "hidden";
+  // document.getElementById("experiment-setup").style.display = "block";
+}

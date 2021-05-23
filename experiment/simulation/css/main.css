@@ -1,82 +1,141 @@
-#instruction {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.4vw;
+.page {
+  overflow-x: scroll;
 }
 
 .instructions-box {
-  padding: 2% 2%;
-  border-radius: 1vw;
-  border: 0.3vw solid rgb(151, 210, 61);
-  background-color: white;
-  width: 75%;
-  margin: 0 auto;
-  position: static;
-  top: 0;
-  z-index: 1025;
+  margin: auto;
+  margin-top: 1%;
+  width: 40%;
+  padding: 1% 1%;
+  border-radius: 16px;
+  border: 3px solid rgb(151, 210, 61);
 }
 
-input[type="radio"] {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
+.procedure-message {
+  font-size: 120%;
 }
 
-#instructions,
-#instruction {
-  font-size: 1.4rem;
-}
-
-.sample-select {
-  font-size: 1.3rem;
-  font-family: Arial, Helvetica, sans-serif;
-  top: 0;
-  left: 0;
-}
-
-.custom-control-input {
-  margin-right: 0.4rem;
-}
-
-.first-button {
-  margin-bottom: 0.3rem;
+.workspace {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .heavy {
   font-size: 2.2rem;
 }
 
-#solution-beaker {
-  transform: translateX(70%);
+.main {
+  width: 100%;
+  height: 100%;
 }
 
-#animation-bottom-right {
-  max-width: 90%;
+.action-button {
+  color: white;
+  text-align: center;
+  font-size: 120%;
+  background-color: #288ec8;
+  border-radius: 16px;
+  padding: 10px 20px;
+  border: none;
 }
 
-#instruction {
-  vertical-align: top;
+.action-button:hover {
+  background-color: #a9a9a9;
 }
 
-@media (max-width: 576px) {
-  #instructions,
-  #instruction {
-    font-size: 1.2rem;
-  }
-  .spectrometer {
-    width: 70%;
-    height: auto;
-  }
-  .apparatus-spectrometer {
-    text-align: center;
-  }
-  .bottom-row {
-    text-align: center;
-  }
+.sidebar {
+  padding: 1% 1%;
+  background-color: #f1f1f1;
+  border-radius: 16px;
+  border: 3px solid rgb(151, 210, 61);
+  height: 100%;
 }
 
-@media (max-width: 400px) {
-  #syringe {
-    width: 5%;
+.menu-title {
+  box-shadow: 0px 1px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+}
+
+.line {
+  display: block;
+  color: black;
+  padding: 6px;
+  text-decoration: none;
+}
+
+.option:hover {
+  background-color: #555;
+  color: white;
+}
+
+.slider {
+  width: 80%;
+}
+
+.input-form {
+  display: none;
+  color: black;
+}
+
+.apparatus {
+  width: 20%;
+  margin-left: 2.5%;
+  order: 1;
+}
+
+.add {
+  font-size: 90%;
+}
+
+.simulation {
+  order: 2;
+  border: 3px solid rgb(151, 210, 61);
+  width: 100%;
+}
+
+.observations-box {
+  width: 20%;
+  margin-right: 2.5%;
+  order: 3;
+  display: none;
+}
+
+.animation-video {
+  display: none;
+  width: auto;
+}
+
+.plotted-graph-window {
+  display: none;
+  width: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .instructions-box {
+    display: none;
+  }
+
+  .workspace {
+    flex-wrap: wrap;
+  }
+
+  .apparatus {
+    order: 1;
+    width: 40%;
+    margin-left: 7.5%;
+  }
+
+  .simulation {
+    order: 3;
+    width: 100%;
+  }
+
+  .observations-box {
+    order: 2;
+    width: 40%;
+    margin-right: 7.5%;
+    display: block;
   }
 }
