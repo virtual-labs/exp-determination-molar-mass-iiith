@@ -317,33 +317,13 @@ async function moveSyringe2() {
       translateY: endY,
       translateX: endX,
     });
-    await new Promise((r) => setTimeout(r, 2000));
+    //await new Promise((r) => setTimeout(r, 2000));
     // autoScrollVideo();
+    document.getElementById("instruction").innerHTML =
+      "Click on Observe button to observe what is happening inside the spectrometer.";
 
-    document.getElementById("experiment-setup").style.display = "none";
-    document.getElementById("animation-video").style.display = "block";
-    document.getElementById("animation-bottom-right").play();
-    document.getElementById("head-instructions").innerHTML = "Observations";
-    document.getElementById("head-observations").innerHTML = "Observations";
-    document.getElementById("observation").innerHTML = "";
-    document.getElementById("instruction").innerHTML = "";
-
-    await new Promise((r) => setTimeout(r, 2000));
-    observeMessage();
-    await new Promise((r) => setTimeout(r, 5000));
-    observeMessage();
-    await new Promise((r) => setTimeout(r, 3000));
-    observeMessage();
-    await new Promise((r) => setTimeout(r, 5000));
-    observeMessage();
-    await new Promise((r) => setTimeout(r, 3000));
-    observeMessage();
-
-    await new Promise((r) => setTimeout(r, 1000));
-
-    document.getElementById("animation-video").style.display = "none";
-    document.getElementById("plotted-graph-window").style.display = "block";
-    startAnimation();
+    document.getElementById("observation").innerHTML =
+      "Click on Observe button to observe what is happening inside the spectrometer";
     overallIteration++;
   }
 }
@@ -385,11 +365,11 @@ async function visibility(x) {
 }
 
 let instructionMessages = [
-  "Click on the Solvent beaker to draw 1 ml of the solvent (methanol) and inject it into the sample inlet to clean any impurity in the sample pathway of the mass spectrometer.",
-  "Click on the Sample beaker to transfer small amount (around 1mg) of the substance into the empty solution bottle",
-  "Click on the Solvent beaker to transfer 5 ml of the solvent (methanol) to the substance taken.",
-  "Click on the  Solution beaker to shake it and make a clear solution.",
-  "Click on the Solution beaker to draw 1 ml of the sample prepared to load on to the mass spectrometer.",
+  "Click on the Solvent Beaker to draw 1 ml of the solvent (methanol) and inject it into the spectrometer inlet to clean any impurity in the pathway of the mass spectrometer.",
+  "Click on the Sample Beaker to transfer small amount (around 1mg) of the Sample substance into the empty Solution Beaker",
+  "Click on the Solvent Beaker to transfer 5 ml of the Solvent (methanol) to the Solution Beaker.",
+  "Click on the  Solution Beaker to shake it and make a clear solution.",
+  "Click on the Solution Beaker to draw 1 ml of the sample prepared to load on to the Mass Spectrometer.",
 ];
 let iter1 = -1;
 function changeMessage() {
@@ -417,4 +397,63 @@ function observeMessage() {
 
 function screenWidth() {
   divWidth = document.getElementById("workspace").clientWidth;
+}
+
+async function restart() {
+  // document.getElementById("simulation").style.width = "100%";
+  // document.getElementById("animation-video").style.display = "none";
+  // document.getElementById("plotted-graph-window").style.display = "none";
+  // document.getElementById("head-instructions").innerHTML = "Instructions";
+  // document.getElementById("head-observations").innerHTML = "Instructions";
+  // document.getElementById("instruction").innerHTML = "";
+  // document.getElementById("observation").innerHTML = "";
+  // overallIteration = -3;
+  // iter2 = -1;
+  // iter1 = -1;
+  // setup = 0;
+  // setupMessage();
+  // document.getElementById("experiment-setup").style.display = "block";
+  // document.getElementById("syringe").style.display = "none";
+  // document.getElementById("sample-beaker").style.visibility = "hidden";
+  // document.getElementById("solvent-beaker").style.visibility = "hidden";
+  // document.getElementById("solution-beaker").style.visibility = "hidden";
+  // document.getElementById("spectrometer").style.visibility = "hidden";
+  // document.getElementById("experiment-setup").style.display = "block";
+}
+
+async function observe() {
+  if (overallIteration === 7) {
+    document.getElementById("experiment-setup").style.display = "none";
+    document.getElementById("animation-video").style.display = "block";
+    document.getElementById("animation-bottom-right").play();
+    document.getElementById("head-instructions").innerHTML = "Observations";
+    document.getElementById("head-observations").innerHTML = "Observations";
+    document.getElementById("observation").innerHTML = "";
+    document.getElementById("instruction").innerHTML = "";
+
+    await new Promise((r) => setTimeout(r, 2000));
+    observeMessage();
+    await new Promise((r) => setTimeout(r, 5000));
+    observeMessage();
+    await new Promise((r) => setTimeout(r, 3000));
+    observeMessage();
+    await new Promise((r) => setTimeout(r, 5000));
+    observeMessage();
+    await new Promise((r) => setTimeout(r, 3000));
+    overallIteration++;
+
+    document.getElementById("instruction").innerHTML =
+      "Click on Observe button again to see the graph.";
+    document.getElementById("observation").innerHTML =
+      "Click on Observe button again to see the graph.";
+  } else if (overallIteration === 8) {
+    observeMessage();
+
+    await new Promise((r) => setTimeout(r, 1000));
+
+    document.getElementById("animation-video").style.display = "none";
+    document.getElementById("plotted-graph-window").style.display = "block";
+    startAnimation();
+    overallIteration++;
+  }
 }
