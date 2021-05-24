@@ -1,5 +1,6 @@
 "use strict";
 let overallIteration = -3;
+let divWidth = 0;
 let startAnimation = async () => {
   const line = document.getElementById("half-grad");
   const yFinalPosition = 0;
@@ -139,17 +140,19 @@ async function movePipette() {
     let startX = "-980%";
     let startY = "150%";
 
-    if (screen.width > 1533) {
+    screenWidth();
+
+    if (divWidth > 1560) {
       startY = "-150%";
       startX = "450%";
     }
 
-    if (screen.width < 769) {
+    if (divWidth < 793) {
       startY = "-110%";
       startX = "450%";
     }
 
-    if (screen.width < 607) {
+    if (divWidth < 631) {
       startY = "120%";
       startX = "-980%";
     }
@@ -199,17 +202,19 @@ async function moveSyringe() {
     let endX = "200%";
     let endY = "-248%";
 
-    if (screen.width > 1533) {
+    screenWidth();
+
+    if (divWidth > 1560) {
       startX = "-950%";
       startY = "-600%";
     }
 
-    if (screen.width < 769) {
+    if (divWidth < 793) {
       startX = "350%";
       startY = "-1110%";
     }
 
-    if (screen.width < 607) {
+    if (divWidth < 631) {
       startX = "-270%";
       startY = "-890%";
     }
@@ -279,16 +284,18 @@ async function moveSyringe2() {
     let endX = "240%";
     let endY = "-245%";
 
-    if (screen.width > 1533) {
+    screenWidth();
+
+    if (divWidth > 1560) {
       startX = "-1320%";
     }
 
-    if (screen.width < 769) {
+    if (divWidth < 793) {
       startX = "10%";
       startY = "-810%";
     }
 
-    if (screen.width < 607) {
+    if (divWidth < 631) {
       startX = "260%";
       startY = "-830%";
     }
@@ -410,22 +417,17 @@ function observeMessage() {
 
 async function restart() {
   // document.getElementById("simulation").style.width = "100%";
-
   // document.getElementById("animation-video").style.display = "none";
   // document.getElementById("plotted-graph-window").style.display = "none";
-
   // document.getElementById("head-instructions").innerHTML = "Instructions";
   // document.getElementById("head-observations").innerHTML = "Instructions";
   // document.getElementById("instruction").innerHTML = "";
   // document.getElementById("observation").innerHTML = "";
-
   // overallIteration = -3;
   // iter2 = -1;
   // iter1 = -1;
   // setup = 0;
-
   // setupMessage();
-
   // document.getElementById("experiment-setup").style.display = "block";
   // document.getElementById("syringe").style.display = "none";
   // document.getElementById("sample-beaker").style.visibility = "hidden";
@@ -433,8 +435,10 @@ async function restart() {
   // document.getElementById("solution-beaker").style.visibility = "hidden";
   // document.getElementById("spectrometer").style.visibility = "hidden";
   // document.getElementById("experiment-setup").style.display = "block";
+}
 
-  let divWidth = document.getElementById("workspace").clientWidth;
+function screenWidth() {
+  divWidth = document.getElementById("workspace").clientWidth;
   console.log(divWidth);
   console.log("Here we go");
 }
