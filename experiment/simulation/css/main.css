@@ -105,6 +105,7 @@
 .animation-video {
   display: none;
   width: auto;
+  max-width: 90%;
 }
 
 .plotted-graph-window {
