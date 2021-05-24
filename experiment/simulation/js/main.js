@@ -434,3 +434,7 @@ async function restart() {
   document.getElementById("spectrometer").style.visibility = "hidden";
   // document.getElementById("experiment-setup").style.display = "block";
 }
+
+let divWidth = document.getElementById("workspace").clientWidth;
+console.log(divWidth);
+console.log("Here we go");
