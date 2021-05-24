@@ -415,30 +415,6 @@ function observeMessage() {
   document.getElementById("observation").innerHTML = observationMessages[iter2];
 }
 
-async function restart() {
-  // document.getElementById("simulation").style.width = "100%";
-  // document.getElementById("animation-video").style.display = "none";
-  // document.getElementById("plotted-graph-window").style.display = "none";
-  // document.getElementById("head-instructions").innerHTML = "Instructions";
-  // document.getElementById("head-observations").innerHTML = "Instructions";
-  // document.getElementById("instruction").innerHTML = "";
-  // document.getElementById("observation").innerHTML = "";
-  // overallIteration = -3;
-  // iter2 = -1;
-  // iter1 = -1;
-  // setup = 0;
-  // setupMessage();
-  // document.getElementById("experiment-setup").style.display = "block";
-  // document.getElementById("syringe").style.display = "none";
-  // document.getElementById("sample-beaker").style.visibility = "hidden";
-  // document.getElementById("solvent-beaker").style.visibility = "hidden";
-  // document.getElementById("solution-beaker").style.visibility = "hidden";
-  // document.getElementById("spectrometer").style.visibility = "hidden";
-  // document.getElementById("experiment-setup").style.display = "block";
-}
-
 function screenWidth() {
   divWidth = document.getElementById("workspace").clientWidth;
-  console.log(divWidth);
-  console.log("Here we go");
 }
