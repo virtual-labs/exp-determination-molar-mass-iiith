@@ -107,6 +107,10 @@ function pur() {
     overallIteration++;
     document.getElementById("sample-beaker").style.cursor = "default";
     document.getElementById("solvent-beaker").style.cursor = "pointer";
+
+    if (restartAnimation) {
+      a1.restart();
+    }
   }
 }
 async function liftPiston() {
@@ -184,11 +188,16 @@ async function movePipette() {
     overallIteration++;
     document.getElementById("solvent-beaker").style.cursor = "default";
     document.getElementById("solution-beaker").style.cursor = "pointer";
+
+    if (restartAnimation) {
+      a1.restart();
+    }
   }
 }
 async function moveSyringe() {
   if (overallIteration === 1) {
     changeMessage();
+    document.getElementById("syringe").style.opacity = 1;
     let image = document.getElementById("syringe");
     image.setAttribute("opacity", "1");
     image.style.pointerEvents = "none";
@@ -223,6 +232,7 @@ async function moveSyringe() {
       duration: 0,
       translateY: startY,
       translateX: startX,
+      rotateZ: 0,
     });
     liftPiston();
     fillSyringe(1);
@@ -235,6 +245,10 @@ async function moveSyringe() {
       translateY: endY,
       translateX: endX,
     });
+
+    if (restartAnimation) {
+      a1.restart();
+    }
   }
 }
 async function shakeBeaker() {
@@ -266,6 +280,10 @@ async function shakeBeaker() {
       .getElementById("solution-beaker")
       .setAttribute("onclick", "moveSyringe2()");
     overallIteration++;
+
+    if (restartAnimation) {
+      a1.restart();
+    }
   }
 }
 async function moveSyringe2() {
@@ -317,14 +335,21 @@ async function moveSyringe2() {
       translateY: endY,
       translateX: endX,
     });
-    //await new Promise((r) => setTimeout(r, 2000));
-    // autoScrollVideo();
+
+    // restartAnimation = False;
+
     document.getElementById("instruction").innerHTML =
       "Click on Observe button to observe what is happening inside the spectrometer.";
 
     document.getElementById("observation").innerHTML =
       "Click on Observe button to observe what is happening inside the spectrometer";
     overallIteration++;
+
+    if (restartAnimation) {
+      a1.restart();
+    }
+
+    restartAnimation = false;
   }
 }
 
@@ -390,6 +415,9 @@ let observationMessages = [
 ];
 
 function observeMessage() {
+  if (restartAnimation) {
+    return;
+  }
   iter2++;
   document.getElementById("instruction").innerHTML = observationMessages[iter2];
   document.getElementById("observation").innerHTML = observationMessages[iter2];
@@ -399,37 +427,73 @@ function screenWidth() {
   divWidth = document.getElementById("workspace").clientWidth;
 }
 
+let originalSimulationHeight =
+  document.getElementById("simulation").clientHeight;
+
+let restartAnimation = false;
+
 async function restart() {
-  // document.getElementById("simulation").style.width = "100%";
-  // document.getElementById("animation-video").style.display = "none";
-  // document.getElementById("plotted-graph-window").style.display = "none";
-  // document.getElementById("head-instructions").innerHTML = "Instructions";
-  // document.getElementById("head-observations").innerHTML = "Instructions";
-  // document.getElementById("instruction").innerHTML = "";
-  // document.getElementById("observation").innerHTML = "";
-  // overallIteration = -3;
-  // iter2 = -1;
-  // iter1 = -1;
-  // setup = 0;
-  // setupMessage();
-  // document.getElementById("experiment-setup").style.display = "block";
-  // document.getElementById("syringe").style.display = "none";
-  // document.getElementById("sample-beaker").style.visibility = "hidden";
-  // document.getElementById("solvent-beaker").style.visibility = "hidden";
-  // document.getElementById("solution-beaker").style.visibility = "hidden";
-  // document.getElementById("spectrometer").style.visibility = "hidden";
+  document.getElementById("simulation").style.height = originalSimulationHeight;
+  document.getElementById("animation-video").style.display = "none";
+  document.getElementById("plotted-graph-window").style.display = "none";
+
+  document.getElementById("head-instructions").innerHTML = "Instructions";
+  document.getElementById("head-observations").innerHTML = "Instructions";
+  document.getElementById("instruction").innerHTML = "";
+  document.getElementById("observation").innerHTML = "";
+  overallIteration = -3;
+  iter2 = -1;
+  iter1 = -1;
+  setup = 0;
+  setupMessage();
+  document.getElementById("syringe").style.opacity = 0;
+  document.getElementById("apparatus-bottles").style.display = "block";
+  document.getElementById("apparatus-spectrometer").style.display = "block";
+  document.getElementById("sample-beaker").style.visibility = "hidden";
+  document.getElementById("solvent-beaker").style.visibility = "hidden";
+  document.getElementById("solution-beaker").style.visibility = "hidden";
+  document.getElementById("spectrometer").style.visibility = "hidden";
+  restartAnimation = true;
+
+  // Resetting the Solution Beaker
+  document.getElementById("pink-bottom").style.fill = "none";
+  document.getElementById("layer-above-pink").style.fill = "none";
+
+  // const tube_ids = ["splash1", "splash2", "splash3"];
+  // tube_ids.forEach((element) => {
+  //   let path = document.getElementById(element);
+  //   path.setAttribute("offset", 0);
+  // });
+  // ids.forEach((ele) => {
+  //   let path = document.getElementById(ele);
+  //   path.setAttribute("offset", 0);
+  // });
+
   // document.getElementById("experiment-setup").style.display = "block";
 }
 
 async function observe() {
   if (overallIteration === 7) {
-    document.getElementById("experiment-setup").style.display = "none";
+    document.getElementById("apparatus-bottles").style.display = "none";
+    document.getElementById("apparatus-spectrometer").style.display = "none";
     document.getElementById("animation-video").style.display = "block";
     document.getElementById("animation-bottom-right").play();
     document.getElementById("head-instructions").innerHTML = "Observations";
     document.getElementById("head-observations").innerHTML = "Observations";
     document.getElementById("observation").innerHTML = "";
     document.getElementById("instruction").innerHTML = "";
+
+    let timeOuts = [2000, 5000, 3000, 5000];
+
+    // timeOuts.forEach((element) => {
+    //   await new Promise((r) => setTimeout(r, element));
+    //   observeMessage();
+    // });
+
+    // for (let index = 0; index < timeOuts.length; index++) {
+    //   await new Promise((r) => setTimeout(r, timeOuts[index]));
+    //   observeMessage();
+    // }
 
     await new Promise((r) => setTimeout(r, 2000));
     observeMessage();
@@ -440,7 +504,10 @@ async function observe() {
     await new Promise((r) => setTimeout(r, 5000));
     observeMessage();
     await new Promise((r) => setTimeout(r, 3000));
-    overallIteration++;
+
+    if (!restartAnimation) {
+      overallIteration++;
+    }
 
     document.getElementById("instruction").innerHTML =
       "Click on Observe button again to see the graph.";
@@ -457,3 +524,45 @@ async function observe() {
     overallIteration++;
   }
 }
+
+// let spectroHeight;
+// resizing();
+// function resizing() {
+//   screenWidth();
+
+//   if (divWidth > 630) {
+//     $("document").ready(function () {
+//       spectroHeight = $("#spectrometer").height();
+
+//       console.log("spectrometer = " + spectroHeight);
+
+//       document.getElementById("simulation").style.maxHeight =
+//         spectroHeight + 50 + "px";
+
+//       console.log(document.getElementById("simulation").style.maxHeight);
+
+//       console.log($("#simulation").height());
+
+//       document.getElementById("animation-bottom-right").style.maxHeight =
+//         spectroHeight + "px";
+//     });
+//   }
+// }
+
+// window.onresize = resizing();
+
+let solvent = document.getElementById("solvent-beaker");
+solvent.addEventListener("click", function () {
+  moveSyringe();
+});
+
+let sample = document.getElementById("sample-beaker");
+sample.addEventListener("click", function () {
+  pur();
+});
+
+// let restartButton = document.getElementById("restart");
+// restartButton.addEventListener("click", function () {
+//   console.log("clearing Timeouts");
+//   clearTimeout(timeOut);
+// });
