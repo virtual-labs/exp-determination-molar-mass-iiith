@@ -507,16 +507,16 @@ async function observe() {
 
     if (!restartAnimation) {
       overallIteration++;
-    }
 
-    document.getElementById("instruction").innerHTML =
-      "Click on Observe button again to see the graph.";
-    document.getElementById("observation").innerHTML =
-      "Click on Observe button again to see the graph.";
+      document.getElementById("instruction").innerHTML =
+        "Click on Observe button again to see the graph.";
+      document.getElementById("observation").innerHTML =
+        "Click on Observe button again to see the graph.";
+    }
   } else if (overallIteration === 8) {
     observeMessage();
 
-    await new Promise((r) => setTimeout(r, 1000));
+    // await new Promise((r) => setTimeout(r, 1000));
 
     document.getElementById("animation-video").style.display = "none";
     document.getElementById("plotted-graph-window").style.display = "block";
