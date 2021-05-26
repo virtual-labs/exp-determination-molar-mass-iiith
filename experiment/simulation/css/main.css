@@ -132,6 +132,7 @@
   .simulation {
     order: 3;
     width: 100%;
+    max-height: none;
   }
 
   .observations-box {
