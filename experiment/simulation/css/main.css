@@ -138,10 +138,11 @@
   .observations-box {
     order: 2;
     width: 40%;
-    max-width: auto;
+    /* max-width: auto; */
     /* margin-right: 0.5%; */
     display: block;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
+    overflow-wrap: break-word;
   }
 }
 
