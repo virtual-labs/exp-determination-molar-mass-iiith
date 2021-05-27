@@ -141,7 +141,7 @@
     max-width: auto;
     /* margin-right: 0.5%; */
     display: block;
-    overflow: scroll;
+    overflow-x: scroll;
   }
 }
 
