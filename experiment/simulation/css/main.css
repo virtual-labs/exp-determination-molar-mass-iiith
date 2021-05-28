@@ -74,6 +74,7 @@
 .apparatus {
   width: 20%;
   order: 1;
+  /* margin-left: 2.5%; */
 }
 
 .add {
@@ -82,9 +83,12 @@
 
 .simulation {
   order: 2;
-  border: 3px solid rgb(151, 210, 61);
+  border: 3px solid rgb(0, 0, 0);
   max-width: 70%;
   max-height: 700px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
 }
 
 .observations-box {
@@ -127,6 +131,7 @@
     order: 1;
     width: 40%;
     /* margin-left: 2.5%; */
+    margin-left: none;
   }
 
   .simulation {
