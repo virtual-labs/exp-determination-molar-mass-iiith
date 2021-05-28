@@ -74,7 +74,7 @@
 .apparatus {
   width: 20%;
   order: 1;
-  /* margin-left: 2.5%; */
+  margin-left: 2.5%;
 }
 
 .add {
@@ -86,9 +86,9 @@
   border: 3px solid rgb(0, 0, 0);
   max-width: 70%;
   max-height: 700px;
-  margin-top: 2rem;
+  /* margin-top: 2rem;
   margin-bottom: 2rem;
-  margin-left: 2rem;
+  margin-left: 2rem; */
 }
 
 .observations-box {

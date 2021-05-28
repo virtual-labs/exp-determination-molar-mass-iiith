@@ -525,31 +525,38 @@ async function observe() {
   }
 }
 
-// let spectroHeight;
-// resizing();
-// function resizing() {
-//   screenWidth();
+let spectroHeight;
+resizing();
+function resizing() {
+  screenWidth();
 
-//   if (divWidth > 630) {
-//     $("document").ready(function () {
-//       spectroHeight = $("#spectrometer").height();
+  if (divWidth > 630) {
+    $("document").ready(function () {
+      spectroHeight = $("#spectrometer").height();
 
-//       console.log("spectrometer = " + spectroHeight);
+      console.log("spectrometer = " + spectroHeight);
 
-//       document.getElementById("simulation").style.maxHeight =
-//         spectroHeight + 50 + "px";
+      document.getElementById("simulation").style.maxHeight =
+        spectroHeight + 50 + "px";
 
-//       console.log(document.getElementById("simulation").style.maxHeight);
+      console.log(document.getElementById("simulation").style.maxHeight);
 
-//       console.log($("#simulation").height());
+      console.log($("#simulation").height());
+      console.log("version-seven");
 
-//       document.getElementById("animation-bottom-right").style.maxHeight =
-//         spectroHeight + "px";
-//     });
-//   }
-// }
+      document.getElementById("animation-bottom-right").style.maxHeight =
+        spectroHeight + "px";
+      document.getElementById("animation-bottom-right").style.maxWidth = "100%";
 
-// window.onresize = resizing();
+      document.getElementById("graph").style.maxWidth = "100%";
+      document.getElementById("graph").style.width = "auto";
+      document.getElementById("graph").style.height = "auto";
+      document.getElementById("graph").style.maxHeight = spectroHeight + "px";
+    });
+  }
+}
+
+window.onresize = resizing();
 
 let solvent = document.getElementById("solvent-beaker");
 solvent.addEventListener("click", function () {
