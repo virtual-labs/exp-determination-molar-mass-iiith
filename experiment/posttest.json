@@ -9,7 +9,12 @@
         "c": "answer3",
         "d": "answer4"
       },
-      "explanations": {},
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
       "correctAnswer": "a",
       "difficulty": "advanced"
     },
@@ -20,6 +25,12 @@
         "b": "answer2",
         "c": "answer3",
         "d": "answer4"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
