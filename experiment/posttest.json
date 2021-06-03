@@ -1,22 +1,39 @@
-[
+{
+  "version": 2.0,
+  "questions": [
     {
-       "question":"1. Which of the following ions pass through the slit and reach the collecting plate? ",
-       "answers":{
-          "a":"Negative ions of all masses",
-          "b":"Positive ions of all masses",
-          "c":"Negative ions of specific mass",
-          "d":"Positive ions of specific mass"
-       },
-       "correctAnswer":"d"
+      "question": "This is a Sample Question 1?",
+      "answers": {
+        "a": "answer1",
+        "b": "answer2",
+        "c": "answer3",
+        "d": "answer4"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
     },
     {
-       "question":"2. How are ions sorted out in mass spectrometer? ",
-       "answers":{
-          "a":"By applying high voltage",
-          "b":"By accelerating them through magnetic field",
-          "c":"By accelerating them through both electric and magnetic fields",
-          "d":"By accelerating them through electric field"
-       },
-       "correctAnswer":"c"
+      "question": "This is a Sample Question 2?",
+      "answers": {
+        "a": "answer1",
+        "b": "answer2",
+        "c": "answer3",
+        "d": "answer4"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
     }
- ]
+  ]
+}
