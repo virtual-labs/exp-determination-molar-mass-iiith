@@ -1,22 +1,39 @@
-[
+{
+  "version": 2.0,
+  "questions": [
     {
-       "question":"1. Mass spectrometers are used to determine which of the following? ",
-       "answers":{
-          "a":"Composition of sample",
-          "b":"Concentration of elements in sample",
-          "c":"Relative mass of atoms",
-          "d":"Properties of sample"
-       },
-       "correctAnswer":"c"
+      "question": "This is a Sample Question 1?",
+      "answers": {
+        "a": "answer1",
+        "b": "answer2",
+        "c": "answer3",
+        "d": "answer4"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
     },
     {
-       "question":"2. Who invented mass spectrometers? ",
-       "answers":{
-          "a":"Nikola Tesla",
-          "b":"JJ Thompson",
-          "c":"Goldstein",
-          "d":"Albert Einstein"
-       },
-       "correctAnswer":"b"
+      "question": "This is a Sample Question 2?",
+      "answers": {
+        "a": "answer1",
+        "b": "answer2",
+        "c": "answer3",
+        "d": "answer4"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
     }
- ]
+  ]
+}
