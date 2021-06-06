@@ -154,7 +154,7 @@
     margin-right: 0.5%;
     display: block;
     /* overflow-x: scroll; */
-    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }
 
