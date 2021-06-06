@@ -1,11 +1,8 @@
 .instructions-box {
   margin: auto;
   margin-top: 1%;
-  width: auto;
   max-width: 80%;
   padding: 1% 1%;
-  border-radius: 16px;
-  border: 3px solid rgb(151, 210, 61);
 }
 
 .procedure-message {
@@ -30,6 +27,7 @@
   border-radius: 16px;
   padding: 10px 20px;
   border: none;
+  display: none;
 }
 
 .action-button:hover {
@@ -37,20 +35,20 @@
 }
 
 .sidebar {
-  padding: 1% 1%;
+  /* padding: 1% 1%;
   background-color: #f1f1f1;
   border-radius: 16px;
-  border: 3px solid rgb(151, 210, 61);
+  border: 3px solid rgb(151, 210, 61); */
   height: 100%;
 }
 
-.menu-title {
+/* .menu-title {
   box-shadow: 0px 1px;
   padding-bottom: 10px;
   border-bottom: 2px solid white;
-}
+} */
 
-.line {
+/* .line {
   display: block;
   color: black;
   padding: 6px;
@@ -60,7 +58,7 @@
 .option:hover {
   background-color: #555;
   color: white;
-}
+} */
 
 .slider {
   width: 80%;
@@ -75,6 +73,14 @@
   width: 20%;
   order: 1;
   margin-left: 2.5%;
+}
+
+.apparatus-end {
+  padding-bottom: 20%;
+}
+
+.control {
+  border-top: 3px solid rgb(151, 210, 61);
 }
 
 .add {
@@ -143,8 +149,8 @@
   .observations-box {
     order: 2;
     width: 40%;
-    /* max-width: auto; */
-    /* margin-right: 0.5%; */
+    max-width: auto;
+    margin-right: 0.5%;
     display: block;
     /* overflow-x: scroll; */
     overflow-wrap: break-word;
