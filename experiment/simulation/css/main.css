@@ -124,6 +124,13 @@
   width: auto;
 }
 
+@media screen and (min-width: 769px) {
+  .instructions-box {
+    margin-left: 24%;
+    width: 71%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .instructions-box {
     display: none;
