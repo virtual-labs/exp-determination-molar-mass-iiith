@@ -1,25 +1,92 @@
-{
-  "version": 2.0,
-  "questions": [
-    {
-      "question": "This is a Sample Question 1?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "correctAnswer": "a"
-    },
-    {
-      "question": "This is a Sample Question 2?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "correctAnswer": "c"
-    }
-  ]
-}
+[
+{"question":"1. Mass spectrum gives valuable information about:",
+"answers":{
+            "a":"molecular mass",
+            "b":"functionals groups",
+            "c":"conjugation",
+            "d":"vibrational states "
+          },
+"correctAnswer":"a"},
+
+{"question":"2. The ions are separated based on their mass to charge ratios in",
+"answers":{
+            "a":"ionsiation chamber",
+            "b":"mass analyzer",
+            "c":"sample inlet",
+            "d":"detector"
+          },
+"correctAnswer":"c"},
+
+{"question":"3. The typical ionisation energy used in a EI-MS is:",
+"answers":{
+            "a":"0.7 eV",
+            "b":"7 eV",
+            "c":"70 eV",
+            "d":"700 e V"
+          },
+"correctAnswer":"a"},
+
+{"question":"4. Mass spectrum is a plot of:",
+"answers":{
+            "a":"relative intensity vs mass-to-charge",
+            "b":"relative intensity vs mass-to-energy",
+            "c":"voltage vs mass-to-charge",
+            "d":"voltage vs mass -to -energy"
+          },
+"correctAnswer":"c"},
+
+{"question":"5. The molecular ion peak in a mass spectrum corresponds to:",
+"answers":{
+            "a":"ion formed by fragmentation of a molecule",
+            "b":"molecule losing an electron to form a radical cation",
+            "c":"the most abundant ion",
+            "d":"ion with smallest mass-to-charge"
+          },
+"correctAnswer":"a"},
+
+{"question":"6. The base peak in a mass spectrum corresponds to:",
+"answers":{
+            "a":"ion formed by fragmentation of a molecule",
+            "b":"molecule losing an electron to form a radical cation",
+            "c":"the most abundant ion",
+            "d":"ion with smallest mass-to-charge"
+          },
+"correctAnswer":"c"},
+
+{"question":"7. In an magnetic sector mass analyser, the ion separation is based on:",
+"answers":{
+            "a":"ions with the correct mass-to-charge ratio undergo stable oscillation and passes through the cylinderal rods before they hit the detector",
+            "b":"lighter ions have higher velocity",
+            "c":"greater mass to charge ratio have larger radius of the curved path",
+            "d":"Heavier ions have higher velocity"
+          },
+"correctAnswer":"a"},
+
+{"question":"8. The sample introduced into the sample inlet first gets:",
+"answers":{
+            "a":"vapourised",
+            "b":"ionised",
+            "c":"accelarated",
+            "d":"deflected"
+          },
+"correctAnswer":"c"}
+
+{"question":"9. If a compound has an even number of nitrogen atoms, its molecular ion will appear at an even mass value. This is called:",
+"answers":{
+            "a":"Mass rule",
+            "b":"Molecular ion rule",
+            "c":"Nitrogen rule",
+            "d":"Stevenson's rule"
+          },
+"correctAnswer":"a"},
+
+{"question":"10. The most probable fragmentation is the onw that leaves the positive charge on the fragment with the lowest ionsiation energy. This rule is called:",
+"answers":{
+            "a":"Mass rule",
+            "b":"Molecular ion rule",
+            "c":"Nitrogen rule",
+            "d":"Stevenson's rule"
+          },
+"correctAnswer":"c"}
+ 
+]
