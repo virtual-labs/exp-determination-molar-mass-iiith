@@ -213,8 +213,6 @@ async function moveSyringe() {
 
     screenWidth();
 
-    console.log(divWidth);
-
     if (divWidth > 1560) {
       startX = "-950%";
       startY = "-600%";
@@ -558,7 +556,14 @@ function resizing() {
   // }
 }
 
+function info() {
+  screenWidth();
+  console.log("DivWidth is: ", divWidth);
+}
+
 window.onresize = resizing();
+
+window.onresize = info;
 
 let solvent = document.getElementById("solvent-beaker");
 solvent.addEventListener("click", function () {
