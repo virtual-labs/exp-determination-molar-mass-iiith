@@ -146,17 +146,17 @@ async function movePipette() {
 
     screenWidth();
 
-    if (divWidth > 1560) {
+    if (divWidth > 1759) {
       startY = "-150%";
       startX = "450%";
     }
 
-    if (divWidth < 793) {
-      startY = "-110%";
-      startX = "450%";
-    }
+    // if (divWidth < 769) {
+    //   startY = "-110%";
+    //   startX = "450%";
+    // }
 
-    if (divWidth < 631) {
+    if (divWidth < 769) {
       startY = "120%";
       startX = "-980%";
     }
@@ -213,17 +213,17 @@ async function moveSyringe() {
 
     screenWidth();
 
-    if (divWidth > 1560) {
+    if (divWidth > 1759) {
       startX = "-950%";
       startY = "-600%";
     }
 
-    if (divWidth < 793) {
-      startX = "350%";
-      startY = "-1110%";
-    }
+    // if (divWidth < 769) {
+    //   startX = "350%";
+    //   startY = "-1110%";
+    // }
 
-    if (divWidth < 631) {
+    if (divWidth < 769) {
       startX = "-270%";
       startY = "-890%";
     }
@@ -304,16 +304,16 @@ async function moveSyringe2() {
 
     screenWidth();
 
-    if (divWidth > 1560) {
+    if (divWidth > 1759) {
       startX = "-1320%";
     }
 
-    if (divWidth < 793) {
-      startX = "10%";
-      startY = "-810%";
-    }
+    // if (divWidth < 769) {
+    //   startX = "10%";
+    //   startY = "-810%";
+    // }
 
-    if (divWidth < 631) {
+    if (divWidth < 769) {
       startX = "260%";
       startY = "-830%";
     }
