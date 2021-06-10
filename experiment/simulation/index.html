@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.5-b/css/style.min.css">
 		<link rel="stylesheet" href="./css/main.css">
 		<script
       src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
@@ -14,34 +15,37 @@
 	</head>
 
 	<body class="page">
-		<div class="columns is-centered">
+		<div class="columns">
 			<div class="column has-text-centered">
-				<div class="instructions-box">
-					<div id="head-instructions" class="title is-4 instructions">Instructions</div>
-					<div id="instruction" class="procedure-message"></div>
+				<div class="instructions-box v-instruction-container">
+					<div id="head-instructions" class="title is-4 instructions v-instruction-title">Instructions</div>
+					<div id="instruction" class="procedure-message v-instruction-text"></div>
 				</div>
 			</div>
     </div>
 		
     <div class="columns is-centered is-mobile workspace" id="workspace">
-			<div class="column has-text-centered is-narrow apparatus" id="apparatus">
-				<div class="sidebar">
-					<div class="title is-5 menu-title">Apparatus Menu</div>
-          <a class="title is-6 line option" id="sample" onclick="visibility(1)">Sample Beaker</a>
-					<a class="title is-6 line option" id="solvent" onclick="visibility(2)">Solvent Beaker</a>
-					<a  class="title is-6 line option" id="solution" onclick="visibility(3)">Solution Beaker</a>
-          <a class="title is-6 line option" id="mass-spectrometer" onclick="visibility(4)">Mass Spectrometer</a>
+			<div class="column has-text-centered is-2-desktop is-5-tablet is-5-mobile apparatus" id="apparatus">
+				<div class="sidebar v-datalist-container">
+					<div class="v-datalist-title apparatus-menu">Apparatus Menu</div>
+          <a class="v-datalist-row v-bold" id="sample" onclick="visibility(1)">Sample Beaker</a>
+					<a class="v-datalist-row v-bold" id="solvent" onclick="visibility(2)">Solvent Beaker</a>
+					<a  class="v-datalist-row v-bold" id="solution" onclick="visibility(3)">Solution Beaker</a>
+          <a class="v-datalist-row v-bold apparatus-end" id="mass-spectrometer" onclick="visibility(4)">Mass Spectrometer</a>
+          <div class="v-datalist-title control">Control Menu</div>
+          <a class="v-datalist-row v-bold" id="restart" onclick="restart()">Restart</a>
+          <a class="v-datalist-row v-bold" id="observe" onclick="observe()">Observe</a>
 				</div>
 			</div>
 
-      <div class="column has-text-centered is-narrow observations-box">
-				<div class="sidebar">
-					<div id="head-observations" class="title is-5 menu-title observations">Instructions</div>
+      <div class="column has-text-centered is-2-desktop is-5-tablet is-5-mobile observations-box">
+				<div class="sidebar v-datalist-container">
+					<div id="head-observations" class="v-datalist-title">Instructions</div>
 					<div id="observation" class="procedure-message"></div>
 				</div>
 			</div>
 
-			<div class="column has-text-centered simulation is-full-mobile" id="simulation">
+			<div class="column v-canvas-container has-text-centered simulation is-full-mobile" id="simulation">
 				<div class="hero is-small">
 					<div class="hero-body">
 						<div id="experiment-setup" class="experiment-setup columns">
