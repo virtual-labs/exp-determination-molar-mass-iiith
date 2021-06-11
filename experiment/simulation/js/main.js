@@ -1,6 +1,8 @@
 "use strict";
 let overallIteration = -3;
 let divWidth = 0;
+let videoSpeed = 1;
+let speedFactor = 1.0;
 let startAnimation = async () => {
   const line = document.getElementById("half-grad");
   const yFinalPosition = 0;
@@ -339,10 +341,10 @@ async function moveSyringe2() {
     // restartAnimation = False;
 
     document.getElementById("instruction").innerHTML =
-      "Click on Observe button to observe what is happening inside the spectrometer.";
+      "Click on Observe button to observe what is happening inside the spectrometer and choose video speed according to your own liking.";
 
     document.getElementById("observation").innerHTML =
-      "Click on Observe button to observe what is happening inside the spectrometer";
+      "Click on Observe button to observe what is happening inside the spectrometer and choose video speed according to your own liking.";
     overallIteration++;
 
     if (restartAnimation) {
@@ -474,6 +476,7 @@ async function restart() {
 
 async function observe() {
   if (overallIteration === 7) {
+    document.getElementById("slidecontainer").style.display = "block";
     document.getElementById("apparatus-bottles").style.display = "none";
     document.getElementById("apparatus-spectrometer").style.display = "none";
     document.getElementById("animation-video").style.display = "block";
@@ -495,15 +498,15 @@ async function observe() {
     //   observeMessage();
     // }
 
-    await new Promise((r) => setTimeout(r, 2000));
+    await new Promise((r) => setTimeout(r, 2000 * speedFactor));
     observeMessage();
-    await new Promise((r) => setTimeout(r, 5000));
+    await new Promise((r) => setTimeout(r, 5000 * speedFactor));
     observeMessage();
-    await new Promise((r) => setTimeout(r, 3000));
+    await new Promise((r) => setTimeout(r, 3000 * speedFactor));
     observeMessage();
-    await new Promise((r) => setTimeout(r, 5000));
+    await new Promise((r) => setTimeout(r, 5000 * speedFactor));
     observeMessage();
-    await new Promise((r) => setTimeout(r, 3000));
+    await new Promise((r) => setTimeout(r, 3000 * speedFactor));
 
     if (!restartAnimation) {
       overallIteration++;
@@ -517,6 +520,7 @@ async function observe() {
     observeMessage();
 
     // await new Promise((r) => setTimeout(r, 1000));
+    document.getElementById("slidecontainer").style.display = "none";
 
     document.getElementById("animation-video").style.display = "none";
     document.getElementById("plotted-graph-window").style.display = "block";
@@ -580,3 +584,13 @@ sample.addEventListener("click", function () {
 //   console.log("clearing Timeouts");
 //   clearTimeout(timeOut);
 // });
+
+let slider = document.getElementById("slider");
+let vid = document.getElementById("animation-bottom-right");
+slider.oninput = function () {
+  console.log("Slider values is ", slider.value);
+  videoSpeed = slider.value;
+  vid.playbackRate = videoSpeed;
+  speedFactor = 1 / videoSpeed;
+  console.log("Sppeed Factor is ", speedFactor);
+};
