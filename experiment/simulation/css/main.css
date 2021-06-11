@@ -64,6 +64,10 @@
   width: 80%;
 }
 
+.slidecontainer {
+  display: none;
+}
+
 .input-form {
   display: none;
   color: black;
