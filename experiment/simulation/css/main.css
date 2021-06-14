@@ -19,58 +19,16 @@
   font-size: 2.2rem;
 }
 
-.action-button {
-  color: white;
-  text-align: center;
-  font-size: 120%;
-  background-color: #288ec8;
-  border-radius: 16px;
-  padding: 10px 20px;
-  border: none;
-  display: none;
-}
-
-.action-button:hover {
-  background-color: #a9a9a9;
-}
-
 .sidebar {
-  /* padding: 1% 1%;
-  background-color: #f1f1f1;
-  border-radius: 16px;
-  border: 3px solid rgb(151, 210, 61); */
   height: 100%;
 }
 
-/* .menu-title {
-  box-shadow: 0px 1px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid white;
-} */
-
-/* .line {
-  display: block;
-  color: black;
-  padding: 6px;
-  text-decoration: none;
-}
-
-.option:hover {
-  background-color: #555;
-  color: white;
-} */
-
-.slider {
+#slider {
   width: 80%;
 }
 
 .slidecontainer {
   display: none;
-}
-
-.input-form {
-  display: none;
-  color: black;
 }
 
 .apparatus {
@@ -87,18 +45,11 @@
   border-top: 3px solid rgb(151, 210, 61);
 }
 
-.add {
-  font-size: 90%;
-}
-
 .simulation {
   order: 2;
   border: 3px solid rgb(0, 0, 0);
   max-width: 70%;
   max-height: 700px;
-  /* margin-top: 2rem;
-  margin-bottom: 2rem;
-  margin-left: 2rem; */
 }
 
 .observations-box {
@@ -147,7 +98,6 @@
   .apparatus {
     order: 1;
     width: 40%;
-    /* margin-left: 2.5%; */
     margin-left: none;
     overflow-wrap: break-word;
     max-width: 100%;
@@ -165,13 +115,6 @@
     max-width: auto;
     margin-right: 0.5%;
     display: block;
-    /* overflow-x: scroll; */
     word-break: break-word;
-  }
-}
-
-@media screen and (max-width: 466px) {
-  #restart {
-    margin-bottom: 0.5rem;
   }
 }
