@@ -3,6 +3,7 @@ let overallIteration = -3;
 let divWidth = 0;
 let videoSpeed = 1;
 let speedFactor = 1.0;
+
 let startAnimation = async () => {
   const line = document.getElementById("half-grad");
   const yFinalPosition = 0;
@@ -16,6 +17,7 @@ let startAnimation = async () => {
     line.setAttribute("y1", `${yPos}%`);
   }, 1);
 };
+
 let fillSyringe = async (x) => {
   if (overallIteration === 1 || overallIteration === 5) {
     if (x === 1 && overallIteration === 1) {
@@ -115,6 +117,7 @@ function pur() {
     }
   }
 }
+
 async function liftPiston() {
   let image = document.getElementById("syringe-piston");
   image.style.transform = "translate(100%, -5%);";
@@ -132,6 +135,7 @@ async function liftPiston() {
     translateY: "-3%",
   });
 }
+
 async function movePipette() {
   if (overallIteration === 3) {
     changeMessage();
@@ -152,11 +156,6 @@ async function movePipette() {
       startY = "-150%";
       startX = "450%";
     }
-
-    // if (divWidth < 769) {
-    //   startY = "-110%";
-    //   startX = "450%";
-    // }
 
     if (divWidth < 769) {
       startY = "120%";
@@ -196,6 +195,7 @@ async function movePipette() {
     }
   }
 }
+
 async function moveSyringe() {
   if (overallIteration === 1) {
     changeMessage();
@@ -219,11 +219,6 @@ async function moveSyringe() {
       startX = "-950%";
       startY = "-600%";
     }
-
-    // if (divWidth < 769) {
-    //   startX = "350%";
-    //   startY = "-1110%";
-    // }
 
     if (divWidth < 769) {
       startX = "-270%";
@@ -253,6 +248,7 @@ async function moveSyringe() {
     }
   }
 }
+
 async function shakeBeaker() {
   if (overallIteration === 4) {
     changeMessage();
@@ -288,6 +284,7 @@ async function shakeBeaker() {
     }
   }
 }
+
 async function moveSyringe2() {
   if (overallIteration === 5) {
     let image = document.getElementById("syringe");
@@ -309,11 +306,6 @@ async function moveSyringe2() {
     if (divWidth > 1759) {
       startX = "-1320%";
     }
-
-    // if (divWidth < 769) {
-    //   startX = "10%";
-    //   startY = "-810%";
-    // }
 
     if (divWidth < 769) {
       startX = "260%";
@@ -337,8 +329,6 @@ async function moveSyringe2() {
       translateY: endY,
       translateX: endX,
     });
-
-    // restartAnimation = False;
 
     document.getElementById("instruction").innerHTML =
       "Click on Observe button to observe what is happening inside the spectrometer and choose video speed according to your own liking.";
@@ -413,7 +403,7 @@ let observationMessages = [
   "Positively charged radical ions are formed by bombardment of beam of high energy electrons.",
   "The positively charged radical ions are accelerated by perforated negative electrodes",
   "The ions are sorted and separated by the magnetic field according to their mass/charge ratio.",
-  "Now observe the graph being plotted. These lines demonstrate the molar mass of the compound in the solution Bottle.",
+  "Now observe the graph being plotted. These lines demonstrate the molar mass of the compound in the Solution Beaker.",
 ];
 
 function observeMessage() {
@@ -457,21 +447,13 @@ async function restart() {
   document.getElementById("spectrometer").style.visibility = "hidden";
   restartAnimation = true;
 
+  document.getElementById("solvent-beaker").style.cursor = "pointer";
+  document.getElementById("sample-beaker").style.cursor = "default";
+  document.getElementById("solution-beaker").style.cursor = "default";
+
   // Resetting the Solution Beaker
   document.getElementById("pink-bottom").style.fill = "none";
   document.getElementById("layer-above-pink").style.fill = "none";
-
-  // const tube_ids = ["splash1", "splash2", "splash3"];
-  // tube_ids.forEach((element) => {
-  //   let path = document.getElementById(element);
-  //   path.setAttribute("offset", 0);
-  // });
-  // ids.forEach((ele) => {
-  //   let path = document.getElementById(ele);
-  //   path.setAttribute("offset", 0);
-  // });
-
-  // document.getElementById("experiment-setup").style.display = "block";
 }
 
 async function observe() {
@@ -486,88 +468,40 @@ async function observe() {
     document.getElementById("observation").innerHTML = "";
     document.getElementById("instruction").innerHTML = "";
 
+    // Syncing Observation messages with Video Speed
     let timeOuts = [2000, 5000, 3000, 5000];
 
-    // timeOuts.forEach((element) => {
-    //   await new Promise((r) => setTimeout(r, element));
-    //   observeMessage();
-    // });
-
-    // for (let index = 0; index < timeOuts.length; index++) {
-    //   await new Promise((r) => setTimeout(r, timeOuts[index]));
-    //   observeMessage();
-    // }
-
-    await new Promise((r) => setTimeout(r, 2000 * speedFactor));
-    observeMessage();
-    await new Promise((r) => setTimeout(r, 5000 * speedFactor));
-    observeMessage();
-    await new Promise((r) => setTimeout(r, 3000 * speedFactor));
-    observeMessage();
-    await new Promise((r) => setTimeout(r, 5000 * speedFactor));
-    observeMessage();
+    for (let index = 0; index < timeOuts.length; index++) {
+      await new Promise((r) => setTimeout(r, timeOuts[index] * speedFactor));
+      observeMessage();
+    }
     await new Promise((r) => setTimeout(r, 3000 * speedFactor));
 
     if (!restartAnimation) {
       overallIteration++;
 
       document.getElementById("instruction").innerHTML =
-        "Click on Observe button again to see the graph.";
+        "Click on Observe option in the Control Menu again to see the graph.";
       document.getElementById("observation").innerHTML =
-        "Click on Observe button again to see the graph.";
+        "Click on Observe option in the Control Menu again to see the graph.";
     }
   } else if (overallIteration === 8) {
     observeMessage();
 
-    // await new Promise((r) => setTimeout(r, 1000));
     document.getElementById("slidecontainer").style.display = "none";
 
     document.getElementById("animation-video").style.display = "none";
     document.getElementById("plotted-graph-window").style.display = "block";
     startAnimation();
     overallIteration++;
+    setTimeout(function () {
+      document.getElementById("instruction").innerHTML =
+        "Click on Restart option in the Control Menu to restart the experiment from scratch.";
+      document.getElementById("observation").innerHTML =
+        "Click on Restart option in the Control Menu to restart the experiment from scratch.";
+    }, 10000);
   }
 }
-
-let spectroHeight;
-resizing();
-function resizing() {
-  screenWidth();
-
-  // if (divWidth > 630) {
-  //   $("document").ready(function () {
-  //     spectroHeight = $("#spectrometer").height();
-
-  //     console.log("spectrometer = " + spectroHeight);
-
-  //     document.getElementById("simulation").style.maxHeight =
-  //       spectroHeight + 50 + "px";
-
-  //     console.log(document.getElementById("simulation").style.maxHeight);
-
-  //     console.log($("#simulation").height());
-  //     console.log("version-seven");
-
-  //     document.getElementById("animation-bottom-right").style.maxHeight =
-  //       spectroHeight + "px";
-  //     document.getElementById("animation-bottom-right").style.maxWidth = "100%";
-
-  //     document.getElementById("graph").style.maxWidth = "100%";
-  //     document.getElementById("graph").style.width = "auto";
-  //     document.getElementById("graph").style.height = "auto";
-  //     document.getElementById("graph").style.maxHeight = spectroHeight + "px";
-  //   });
-  // }
-}
-
-function info() {
-  screenWidth();
-  console.log("DivWidth is: ", divWidth);
-}
-
-window.onresize = resizing();
-
-window.onresize = info;
 
 let solvent = document.getElementById("solvent-beaker");
 solvent.addEventListener("click", function () {
@@ -579,18 +513,10 @@ sample.addEventListener("click", function () {
   pur();
 });
 
-// let restartButton = document.getElementById("restart");
-// restartButton.addEventListener("click", function () {
-//   console.log("clearing Timeouts");
-//   clearTimeout(timeOut);
-// });
-
 let slider = document.getElementById("slider");
 let vid = document.getElementById("animation-bottom-right");
 slider.oninput = function () {
-  console.log("Slider values is ", slider.value);
   videoSpeed = slider.value;
   vid.playbackRate = videoSpeed;
   speedFactor = 1 / videoSpeed;
-  console.log("Sppeed Factor is ", speedFactor);
 };
