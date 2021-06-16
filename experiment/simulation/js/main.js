@@ -445,6 +445,7 @@ async function restart() {
   document.getElementById("solvent-beaker").style.visibility = "hidden";
   document.getElementById("solution-beaker").style.visibility = "hidden";
   document.getElementById("spectrometer").style.visibility = "hidden";
+  document.getElementById("slidecontainer").style.display = "none";
   restartAnimation = true;
 
   document.getElementById("solvent-beaker").style.cursor = "pointer";
