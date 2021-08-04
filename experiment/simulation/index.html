@@ -3,15 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.5-b/css/style.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.6-b/css/style.min.css">
 		<link rel="stylesheet" href="./css/main.css">
-		<script
-      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
-      integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 
 	<body class="page">
@@ -34,12 +27,12 @@
           <a class="v-datalist-row v-bold" id="mass-spectrometer" onclick="visibility(4)">Mass Spectrometer</a>
           <a class="apparatus-end"></a>
           <div class="v-datalist-title control">Control Menu</div>
-          <a class="v-datalist-row v-bold" id="restart" onclick="restart()">Restart</a>
           <a class="v-datalist-row v-bold" id="observe" onclick="observe()">Observe</a>
           <div class="slidecontainer" id="slidecontainer">
             <p>Set Video Speed</p>
             <input type="range" min="0.25" max="2.25" value="1.0" step="0.25" class="v-slider-full" id="slider" />
           </div>
+          <a class="v-datalist-row v-bold" id="restart" onclick="restart()">Restart</a>
 				</div>
 			</div>
 
@@ -666,6 +659,11 @@
 			</div>
 		</div>
 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+      integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+      crossorigin="anonymous"
+    ></script>
 		<script src="./js/main.js"></script>
 	</body>
 </html>
