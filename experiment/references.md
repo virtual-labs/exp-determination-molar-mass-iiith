@@ -1,1 +1,1 @@
-- Mass analyzers : Click [here.](https://www.chromedia.org/chromediawaxtrapp=thcseDsHqnOxmOlIEcCzBmCJ&subNav;=oibelDsHqnOxmOlIEcCzBmCJvB)
+- [Mass analyzers](https://www.chromedia.org/chromediawaxtrapp=thcseDsHqnOxmOlIEcCzBmCJ&subNav;=oibelDsHqnOxmOlIEcCzBmCJvB)
