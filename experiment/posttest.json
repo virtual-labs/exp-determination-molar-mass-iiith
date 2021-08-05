@@ -1,0 +1,73 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. Non-absorbing analyte molecules can also be studied with the help of:",
+      "answers": {
+        "a": "Matrix ions",
+        "b": "Conjugate ion",
+        "c": "Hydration shell",
+        "d": "Another non-absorbing ion with high energy"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "2. Which other chromatographic technique can be combined with the TOF mass spectrometry for obtaining the mass of a molecule?",
+      "answers": {
+        "a": "Thin layer chromatography",
+        "b": "Gel permeation chromatography",
+        "c": "Affinity chromatography",
+        "d": "High performance liquid chromatography"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "c"
+    },
+    {
+      "question": "3. MALDI is generally associated with which analyser?",
+      "answers": {
+        "a": "Time of flight",
+        "b": "Triple quadruple",
+        "c": "Ion trap",
+        "d": "All of the above"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "4. In the TOF spectrometer, the ions are accelerated over a short distance d by an electric field of strength E and travel length l. The time, t, required for an ion of mass m and charge z to reach the detector at the end of the drift region is:",
+      "answers": {
+        "a": "t= l (m/2zEd)^(1/2)",
+        "b": "t= m (l/2zEd)^(1/2)",
+        "c": "t= z (l/2mEd)^(1/2)",
+        "d": "t= d (l/2zEm)^(1/2)"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "a"
+    }
+  ]
+}
