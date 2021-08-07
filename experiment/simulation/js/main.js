@@ -4,6 +4,20 @@ let divWidth = 0;
 let videoSpeed = 1;
 let speedFactor = 1.0;
 
+const apparatusOptions = [
+  "sample",
+  "solvent",
+  "solution",
+  "mass-spectrometer",
+  "observe",
+];
+
+apparatusOptions.forEach(function (option) {
+  document.getElementById(option).style.pointerEvents = "none";
+});
+
+document.getElementById("sample").style.pointerEvents = "auto";
+
 let startAnimation = async () => {
   const line = document.getElementById("half-grad");
   const yFinalPosition = 0;
@@ -341,6 +355,7 @@ async function moveSyringe2() {
       a1.restart();
     }
 
+    document.getElementById("observe").style.pointerEvents = "auto";
     restartAnimation = false;
   }
 }
@@ -360,22 +375,29 @@ function setupMessage() {
   setup++;
 }
 
+function apparatusSetup(visibleID, oldOption, newOption) {
+  document.getElementById(visibleID).style.visibility = "visible";
+  document.getElementById(oldOption).style.pointerEvents = "none";
+  document.getElementById(newOption).style.pointerEvents = "auto";
+}
+
 setupMessage();
 async function visibility(x) {
   if (x === 1 && overallIteration === -3) {
-    document.getElementById("sample-beaker").style.visibility = "visible";
+    apparatusSetup("sample-beaker", "sample", "solvent");
     overallIteration++;
     setupMessage();
   } else if (x === 2 && overallIteration === -2) {
-    document.getElementById("solvent-beaker").style.visibility = "visible";
+    apparatusSetup("solvent-beaker", "solvent", "solution");
     overallIteration++;
     setupMessage();
   } else if (x === 3 && overallIteration === -1) {
-    document.getElementById("solution-beaker").style.visibility = "visible";
+    apparatusSetup("solution-beaker", "solution", "mass-spectrometer");
     overallIteration++;
     setupMessage();
   } else if (x === 4 && overallIteration === 0) {
     document.getElementById("spectrometer").style.visibility = "visible";
+    apparatusSetup("spectrometer", "mass-spectrometer", "restart");
     overallIteration++;
     changeMessage();
   }
@@ -429,6 +451,11 @@ async function restart() {
   document.getElementById("animation-video").style.display = "none";
   document.getElementById("plotted-graph-window").style.display = "none";
 
+  apparatusOptions.forEach(function (option) {
+    document.getElementById(option).style.pointerEvents = "none";
+  });
+  document.getElementById("sample").style.pointerEvents = "auto";
+
   document.getElementById("head-instructions").innerHTML = "Instructions";
   document.getElementById("head-observations").innerHTML = "Instructions";
   document.getElementById("instruction").innerHTML = "";
@@ -459,6 +486,7 @@ async function restart() {
 
 async function observe() {
   if (overallIteration === 7) {
+    document.getElementById("observe").style.pointerEvents = "none";
     document.getElementById("slidecontainer").style.display = "block";
     document.getElementById("apparatus-bottles").style.display = "none";
     document.getElementById("apparatus-spectrometer").style.display = "none";
@@ -485,10 +513,12 @@ async function observe() {
         "Click on Observe option in the Control Menu again to see the graph.";
       document.getElementById("observation").innerHTML =
         "Click on Observe option in the Control Menu again to see the graph.";
+      document.getElementById("observe").style.pointerEvents = "auto";
     }
   } else if (overallIteration === 8) {
     observeMessage();
 
+    document.getElementById("observe").style.pointerEvents = "none";
     document.getElementById("slidecontainer").style.display = "none";
 
     document.getElementById("animation-video").style.display = "none";
