@@ -411,6 +411,7 @@ async function visibility(x) {
   } else if (x === 4 && overallIteration === 0) {
     document.getElementById("spectrometer").style.visibility = "visible";
     apparatusSetup("spectrometer", "mass-spectrometer", "restart");
+    document.getElementById("solvent-beaker").style.cursor = "pointer";
     overallIteration++;
     changeMessage();
   }
@@ -432,8 +433,6 @@ function changeMessage() {
   //"observation" is the Instructions HTML element that will be visible only in small screens, i.e., width smaller than 769px
   document.getElementById("observation").innerHTML = instructionMessages[iter1];
 }
-
-document.getElementById("solvent-beaker").style.cursor = "pointer";
 
 let iter2 = -1;
 let observationMessages = [
@@ -502,7 +501,7 @@ async function restart() {
   document.getElementById("slidecontainer").style.display = "none";
   restartAnimation = true;
 
-  document.getElementById("solvent-beaker").style.cursor = "pointer";
+  document.getElementById("solvent-beaker").style.cursor = "default";
   document.getElementById("sample-beaker").style.cursor = "default";
   document.getElementById("solution-beaker").style.cursor = "default";
 
