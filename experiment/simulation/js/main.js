@@ -400,7 +400,6 @@ async function visibility(x) {
     overallIteration++;
     setupMessage();
   } else if (x === 4 && overallIteration === 0) {
-    document.getElementById("spectrometer").style.visibility = "visible";
     apparatusSetup("spectrometer", "mass-spectrometer", "restart");
     document.getElementById("solvent-beaker").style.cursor = "pointer";
     overallIteration++;
