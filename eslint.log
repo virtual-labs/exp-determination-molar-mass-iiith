@@ -1,0 +1,22 @@
+
+/home/runner/work/exp-determination-molar-mass-iiith/exp-determination-molar-mass-iiith/experiment/simulation/js/main.js
+   86:14  warning  'anime' is not defined                      no-undef
+  102:27  warning  'anim' is defined but never used            no-unused-vars
+  117:27  warning  'anim' is defined but never used            no-unused-vars
+  141:12  warning  'anime' is not defined                      no-undef
+  155:16  warning  'movePipette' is defined but never used     no-unused-vars
+  161:14  warning  'anime' is not defined                      no-undef
+  197:27  warning  'anim' is defined but never used            no-unused-vars
+  222:14  warning  'anime' is not defined                      no-undef
+  268:16  warning  'shakeBeaker' is defined but never used     no-unused-vars
+  271:9   warning  'image' is assigned a value but never used  no-unused-vars
+  272:14  warning  'anime' is not defined                      no-undef
+  288:27  warning  'anim' is defined but never used            no-unused-vars
+  304:16  warning  'moveSyringe2' is defined but never used    no-unused-vars
+  309:14  warning  'anime' is not defined                      no-undef
+  398:16  warning  'visibility' is defined but never used      no-unused-vars
+  467:16  warning  'restart' is defined but never used         no-unused-vars
+  512:16  warning  'observe' is defined but never used         no-unused-vars
+
+✖ 17 problems (0 errors, 17 warnings)
+
